@@ -6,8 +6,15 @@
 }
 
 @layer utility {
-    .ds-margin-up {
-        margin-block-start: calc(-1 * var(--ds-space));
+    @supports (display: flow-root) {
+        .ds-space-contain {
+            display: flow-root;
+        }
+    }
+    @supports not (display: flow-root) {
+        .ds-space-contain {
+            padding: 0.05px;
+        }
     }
     .ds-no-space {
         margin: 0;
@@ -35,18 +42,24 @@
         margin-block-end: var(--ds-space);
     }
 
+    .ds-space-inside-horizontal,
     .ds-space-inside {
       padding: 0 var(--ds-space);
     }
+
+    .ds-space-inside-vertical::befofe,
+    .ds-space-inside-vertical::after,
     .ds-space-inside::before,
     .ds-space-inside::after {
       content: "";
       display: block;
       height: 0;
     }
+    .ds-space-inside-vertical::before,
     .ds-space-inside::before {
       margin-block-end: var(--ds-space);
     }
+    .ds-space-inside-vertical::after,
     .ds-space-inside::after {
       margin-block-start: var(--ds-space);
     }
