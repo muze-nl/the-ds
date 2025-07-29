@@ -4,16 +4,15 @@
       --ds-black: #000;
       --ds-white: #FFF;
       --ds-primary: hsl(79,69%,44%);
-      --ds-primary-dark: hsl(79,59%,34%);
-      --ds-primary-dark: hsl(79,99%,27%);
+      --ds-primary-high: hsl(79,99%,27%);
       --ds-primary-contrast: white;
-      --ds-primary-light: hsl(79,79%,54%);
-      --ds-primary-gradient: linear-gradient( to left, var(--ds-primary-light), var(--ds-primary-dark) );
+      --ds-primary-low: hsl(79,79%,54%);
+      --ds-primary-gradient: linear-gradient( to left, var(--ds-primary-low), var(--ds-primary-high) );
       --ds-support: #d9edf7;
-      --ds-support-dark: #bce8f1;
-      --ds-support-light: #d9edf7;
+      --ds-support-high: #bce8f1;
+      --ds-support-low: #d9edf7;
       --ds-support-contrast: var(--ds-black);
-      --ds-support-gradient: linear-gradient( to left, var(--ds-support-light), var(--ds-support-dark) );
+      --ds-support-gradient: linear-gradient( to left, var(--ds-support-low), var(--ds-support-high) );
       /* http://www.colorbox.io/#steps=11#hue_start=198#hue_end=198#hue_curve=linear#sat_start=15#sat_end=15#sat_curve=linear#sat_rate=130#lum_start=98#lum_end=0#lum_curve=easeOutQuad#lock_hex=eef1f8#minor_steps_map=0 */
       --ds-grey-0: #eef1f8;
       --ds-grey-5: #e9edf6;
@@ -35,14 +34,14 @@
   :root {
     --ds-light-color: var(--ds-black);
     --ds-light-color-background: var(--ds-white);
-    --ds-light-link-color: var(--ds-primary-dark);
+    --ds-light-link-color: var(--ds-primary-high);
     --ds-light-link-color-visited: var(--ds-grey-medium);
     --ds-light-link-color-hover: var(--ds-primary-low);
-    --ds-light-link-color-active: var(--ds-primary-light);
+    --ds-light-link-color-active: var(--ds-primary-low);
 
     --ds-dark-color: var(--ds-white);
     --ds-dark-color-background: var(--ds-grey-high);
-    --ds-dark-link-color: var(--ds-primary-light);
+    --ds-dark-link-color: var(--ds-primary-low);
     --ds-dark-link-color-visited: var(--ds-grey-medium);
     --ds-dark-link-color-hover: var(--ds-primary);
     --ds-dark-link-color-active: var(--ds-primary);
@@ -136,7 +135,7 @@
       color: var(--ds-primary);
   }
   .ds-color-primary-dark {
-      color: var(--ds-primary-dark);
+      color: var(--ds-primary-high);
   }
   .ds-color-support {
       color: var(--ds-support);
