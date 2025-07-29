@@ -1,0 +1,208 @@
+@layer reset, setup, theme, base, component, page, utility;
+
+
+
+
+
+/* colors */
+@layer setup {
+  :root {
+      --ds-black: #000;
+      --ds-white: #FFF;
+      --ds-primary: hsl(79,69%,44%);
+      --ds-primary-dark: hsl(79,59%,34%);
+      --ds-primary-dark: hsl(79,99%,27%);
+      --ds-primary-contrast: white;
+      --ds-primary-light: hsl(79,79%,54%);
+      --ds-primary-gradient: linear-gradient( to left, var(--ds-primary-light), var(--ds-primary-dark) );
+      --ds-support: #d9edf7;
+      --ds-support-dark: #bce8f1;
+      --ds-support-light: #d9edf7;
+      --ds-support-contrast: var(--ds-black);
+      --ds-support-gradient: linear-gradient( to left, var(--ds-support-light), var(--ds-support-dark) );
+      /* http://www.colorbox.io/#steps=11#hue_start=198#hue_end=198#hue_curve=linear#sat_start=15#sat_end=15#sat_curve=linear#sat_rate=130#lum_start=98#lum_end=0#lum_curve=easeOutQuad#lock_hex=eef1f8#minor_steps_map=0 */
+      --ds-grey-0: #eef1f8;
+      --ds-grey-5: #e9edf6;
+      --ds-grey-10: #e4eaf4;
+      --ds-grey-20: #dae2ed;
+      --ds-grey-30: #cdd7e3;
+      --ds-grey-40: #bdc8d4;
+      --ds-grey-50: #a8b4c0;
+      --ds-grey-60: #8f9ba6;
+      --ds-grey-70: #707c84;
+      --ds-grey-80: #4d565c;
+      --ds-grey-90: #262c2f;
+      --ds-grey-100: #000000;
+      --ds-grey-high: var(--ds-grey-90);
+      --ds-grey-medium: var(--ds-grey-60);
+      --ds-grey-low: var(--ds-grey-0);
+  }
+
+  :root {
+    --ds-light-color: var(--ds-black);
+    --ds-light-color-background: var(--ds-white);
+    --ds-light-link-color: var(--ds-primary-dark);
+    --ds-light-link-color-visited: var(--ds-grey-medium);
+    --ds-light-link-color-hover: var(--ds-primary-low);
+    --ds-light-link-color-active: var(--ds-primary-light);
+
+    --ds-dark-color: var(--ds-white);
+    --ds-dark-color-background: var(--ds-grey-high);
+    --ds-dark-link-color: var(--ds-primary-light);
+    --ds-dark-link-color-visited: var(--ds-grey-medium);
+    --ds-dark-link-color-hover: var(--ds-primary);
+    --ds-dark-link-color-active: var(--ds-primary);
+  }
+}
+
+@layer base {
+  @property --channel {
+    syntax: "*";
+    inherits: false;
+    initial-value: clamp(0, (
+      (
+        (r * .299) + (g * .587) + (b * .114)
+      ) - 128
+    ) * -1000, 255);
+  }
+  
+  :root, .ds-lightmode {
+    --ds-color: var(--ds-light-color);
+    --ds-color-background: var(--ds-light-color-background);
+    --ds-link-color: var(--ds-light-link-color);
+    --ds-link-color-visited: var(--ds-light-link-color-visited);
+    --ds-link-color-hover: var(--ds-light-link-color-hover);
+    --ds-link-color-active: var(--ds-light-link-color-active);	
+  }
+  .ds-darkmode {
+    --ds-color: var(--ds-dark-color);
+    --ds-color-background: var(--ds-dark-color-background);
+    --ds-link-color: var(--ds-dark-link-color);
+    --ds-link-color-visited: var(--ds-dark-link-color-visited);
+    --ds-link-color-hover: var(--ds-dark-link-color-hover);
+    --ds-link-color-active: var(--ds-dark-link-color-active);
+    --ds-grey-high: var(--ds-grey-0);
+    --ds-grey-medium: var(--ds-grey-60);
+    --ds-grey-low: var(--ds-grey-80);
+  }
+  @media (prefers-color-scheme: dark) {
+    .ds-darkmode-auto {
+      --ds-color: var(--ds-dark-color);
+      --ds-color-background: var(--ds-dark-color-background);
+      --ds-link-color: var(--ds-dark-link-color);
+      --ds-link-color-visited: var(--ds-dark-link-color-visited);
+      --ds-link-color-hover: var(--ds-dark-link-color-hover);
+      --ds-link-color-active: var(--ds-dark-link-color-active);
+      --ds-grey-high: var(--ds-grey-0);
+      --ds-grey-medium: var(--ds-grey-60);
+      --ds-grey-low: var(--ds-grey-80);
+    }
+  }
+  body, .ds-darkmode, .ds-lightmode, .ds-darkmode-auto {
+    --ds-color-contrast: rgb(from var(--ds-color-background) var(--channel) var(--channel) var(--channel));
+    color: var(--ds-color-contrast);
+    background-color: var(--ds-color-background);
+  }
+}
+@layer theme {
+    @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,700');
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
+    :root {
+        --ds-body-font: 'Alegreya Sans', sans-serif;
+        --ds-heading-font: Quicksand, Helvetica, sans-serif;
+    }
+}/* forms */
+@layer theme {
+  :root {
+    --ds-input-border: var(--ds-grey-low);
+    --ds-input-space: var(--ds-space);
+    --ds-input-font: var(--ds-font-family);
+    --ds-input-radio-space: 0.2em;
+    --ds-input-height: calc(var(--ds-line-height) * 1.5);
+    --ds-input-margin: calc(var(--ds-line-height) * 0.5);
+  }
+}
+@layer base {
+  .ds-form-group {
+    margin: var(--ds-input-space) 0;
+  }
+  label {
+    display: block;
+    margin: var(--ds-input-space) 0;
+  }
+  input:not([type="radio"],[type="checkbox"]), select {
+    width: 100%;
+    display: block;
+    height: var(--ds-input-height);
+    margin: 0;
+    margin-bottom: var(--ds-input-margin);
+    box-sizing: border-box;
+    background: inherit;
+    color: inherit;
+    border: 0px;
+    outline: 1px solid var(--ds-input-border);
+    padding: 0 0.5em;
+    font-family: var(--ds-input-font);
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
+@layer reset {
+    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {
+        margin:0; 
+        padding:0; 
+    }
+    img {
+        max-width: 100%;
+        display: block;
+    }
+    * {
+        box-sizing: border-box;
+    }
+}/* typography */
+@layer theme {
+  :root {
+    --ds-font-size: calc(1.25 * 1rem);
+    --ds-font-weight: 300;
+    --ds-line-height: calc(1.6 * var(--ds-font-size));
+    --ds-color: var(--grey-medium);
+    --ds-contrast: var(--grey-medium);
+    --ds-background:var(--white);
+    --ds-heading-weight: 400;
+    --ds-heading-multiplier: 1.27201965;
+    --ds-space: var(--ds-line-height);
+  }
+}
+@layer base {
+  body {
+    font-family: var(--ds-body-font);
+    font-size: var(--ds-font-size);
+    font-weight: var(--ds-font-weight);
+    line-height: var(--ds-line-height);
+  }
+  h1 {
+      --ds-font-size: calc(1em * var(--ds-heading-multiplier) * var(--ds-heading-multiplier) * var(--ds-heading-multiplier));
+      line-height: calc(2 * var(--ds-line-height));
+  }
+  h2 {
+      --ds-font-size: calc(1em * var(--ds-heading-multiplier) * var(--ds-heading-multiplier));    
+      line-height: calc(2 * var(--ds-line-height));
+  }
+  h3 {
+      --ds-font-size: calc(1em * var(--ds-heading-multiplier));    
+  }
+  h1, h2, h3, h4, h5, h6 {
+      font-size: var(--ds-font-size);
+      font-weight: var(--ds-heading-weight);
+      font-family: var(--ds-heading-font);
+  }
+  h4, h5, h6 {
+      font-size: 1em;
+  }
+  h1, h2, h3, h4, h5, h6, p, ol, ul, dl {
+      margin: var(--ds-space) 0;
+  }
+  dd, li, blockquote {
+      margin-left: var(--ds-space);
+  }
+}
