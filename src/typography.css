@@ -4,16 +4,13 @@
     --ds-font-size: calc(1.25 * 1rem);
     --ds-font-weight: 300;
     --ds-line-height: calc(1.6 * var(--ds-font-size));
-    --ds-color: var(--grey-medium);
-    --ds-contrast: var(--grey-medium);
-    --ds-background:var(--white);
     --ds-heading-weight: 400;
     --ds-heading-multiplier: 1.27201965;
   }
 }
 @layer base {
   body {
-    font-family: var(--ds-body-font);
+    font-family: var(--ds-font-body);
     font-size: var(--ds-font-size);
     font-weight: var(--ds-font-weight);
     line-height: var(--ds-line-height);
@@ -32,7 +29,7 @@
   h1, h2, h3, h4, h5, h6 {
       font-size: var(--ds-font-size);
       font-weight: var(--ds-heading-weight);
-      font-family: var(--ds-heading-font);
+      font-family: var(--ds-font-heading);
   }
   h4, h5, h6 {
       font-size: 1em;

@@ -1,8 +1,6 @@
 @layer theme {
-    @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,700');
-    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
     :root {
-        --ds-body-font: 'Alegreya Sans', sans-serif;
-        --ds-heading-font: Quicksand, Helvetica, sans-serif;
+        --ds-font-heading: 'Alegreya Sans', sans-serif;
+        --ds-font-body: 'Quicksand', Helvetica, sans-serif;
     }
 }

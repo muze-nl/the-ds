@@ -1,4 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');
 @layer reset, setup, theme, base, component, page, utility;
+
 
 
 
@@ -105,11 +107,9 @@
   }
 }
 @layer theme {
-    @import url('https://fonts.googleapis.com/css?family=Alegreya+Sans:300,700');
-    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,700');
     :root {
-        --ds-body-font: 'Alegreya Sans', sans-serif;
-        --ds-heading-font: Quicksand, Helvetica, sans-serif;
+        --ds-font-heading: 'Alegreya Sans', sans-serif;
+        --ds-font-body: 'Quicksand', Helvetica, sans-serif;
     }
 }/* forms */
 @layer theme {
@@ -217,16 +217,13 @@
     --ds-font-size: calc(1.25 * 1rem);
     --ds-font-weight: 300;
     --ds-line-height: calc(1.6 * var(--ds-font-size));
-    --ds-color: var(--grey-medium);
-    --ds-contrast: var(--grey-medium);
-    --ds-background:var(--white);
     --ds-heading-weight: 400;
     --ds-heading-multiplier: 1.27201965;
   }
 }
 @layer base {
   body {
-    font-family: var(--ds-body-font);
+    font-family: var(--ds-font-body);
     font-size: var(--ds-font-size);
     font-weight: var(--ds-font-weight);
     line-height: var(--ds-line-height);
@@ -245,7 +242,7 @@
   h1, h2, h3, h4, h5, h6 {
       font-size: var(--ds-font-size);
       font-weight: var(--ds-heading-weight);
-      font-family: var(--ds-heading-font);
+      font-family: var(--ds-font-heading);
   }
   h4, h5, h6 {
       font-size: 1em;
