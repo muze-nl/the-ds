@@ -9,34 +9,36 @@
 /* colors */
 @layer setup {
   :root {
-      --ds-black: #000;
-      --ds-white: #FFF;
-      --ds-primary: hsl(79,69%,44%);
-      --ds-primary-high: hsl(79,99%,27%);
-      --ds-primary-contrast: white;
-      --ds-primary-low: hsl(79,79%,54%);
-      --ds-primary-gradient: linear-gradient( to left, var(--ds-primary-low), var(--ds-primary-high) );
-      --ds-support: #d9edf7;
-      --ds-support-high: #bce8f1;
-      --ds-support-low: #d9edf7;
-      --ds-support-contrast: var(--ds-black);
-      --ds-support-gradient: linear-gradient( to left, var(--ds-support-low), var(--ds-support-high) );
-      /* http://www.colorbox.io/#steps=11#hue_start=198#hue_end=198#hue_curve=linear#sat_start=15#sat_end=15#sat_curve=linear#sat_rate=130#lum_start=98#lum_end=0#lum_curve=easeOutQuad#lock_hex=eef1f8#minor_steps_map=0 */
-      --ds-grey-0: #eef1f8;
-      --ds-grey-5: #e9edf6;
-      --ds-grey-10: #e4eaf4;
-      --ds-grey-20: #dae2ed;
-      --ds-grey-30: #cdd7e3;
-      --ds-grey-40: #bdc8d4;
-      --ds-grey-50: #a8b4c0;
-      --ds-grey-60: #8f9ba6;
-      --ds-grey-70: #707c84;
-      --ds-grey-80: #4d565c;
-      --ds-grey-90: #262c2f;
-      --ds-grey-100: #000000;
-      --ds-grey-high: var(--ds-grey-90);
-      --ds-grey-medium: var(--ds-grey-60);
-      --ds-grey-low: var(--ds-grey-0);
+    --ds-black: #000;
+    --ds-white: #FFF;
+    --ds-primary: hsl(79,69%,44%);
+    --ds-primary-90: hsl(79,99%,27%);
+    --ds-primary-0: hsl(79,79%,54%);
+    --ds-primary-high: var(--ds-primary-90);
+    --ds-primary-low: var(--ds-primary-0);
+    --ds-primary-contrast: white;
+    --ds-support: #d9edf7;
+    --ds-support-90: #bce8f1;
+    --ds-support-0: #d9edf7;
+    --ds-support-low: var(--ds-support-0);
+    --ds-support-high: var(--ds-support-90);
+    --ds-support-contrast: var(--ds-black);
+    /* http://www.colorbox.io/#steps=11#hue_start=198#hue_end=198#hue_curve=linear#sat_start=15#sat_end=15#sat_curve=linear#sat_rate=130#lum_start=98#lum_end=0#lum_curve=easeOutQuad#lock_hex=eef1f8#minor_steps_map=0 */
+    --ds-grey-0: #eef1f8;
+    --ds-grey-5: #e9edf6;
+    --ds-grey-10: #e4eaf4;
+    --ds-grey-20: #dae2ed;
+    --ds-grey-30: #cdd7e3;
+    --ds-grey-40: #bdc8d4;
+    --ds-grey-50: #a8b4c0;
+    --ds-grey-60: #8f9ba6;
+    --ds-grey-70: #707c84;
+    --ds-grey-80: #4d565c;
+    --ds-grey-90: #262c2f;
+    --ds-grey-100: #000000;
+    --ds-grey-high: var(--ds-grey-90);
+    --ds-grey-medium: var(--ds-grey-60);
+    --ds-grey-low: var(--ds-grey-0);
   }
 
   :root {
@@ -85,6 +87,10 @@
     --ds-grey-high: var(--ds-grey-0);
     --ds-grey-medium: var(--ds-grey-60);
     --ds-grey-low: var(--ds-grey-80);
+    --ds-support-high: var(-ds-support-0);
+    --ds-support-low: var(--ds-support-90);
+    --ds-primary-high: var(--ds-primary-0);
+    --ds-primary-low: var(--ds-primary-90);
   }
   @media (prefers-color-scheme: dark) {
     .ds-darkmode-auto {
@@ -99,10 +105,28 @@
       --ds-grey-low: var(--ds-grey-80);
     }
   }
-  body, .ds-darkmode, .ds-lightmode, .ds-darkmode-auto {
+  :root, .ds-darkmode, .ds-lightmode, .ds-darkmode-auto {
     --ds-color-contrast: rgb(from var(--ds-color-background) var(--channel) var(--channel) var(--channel));
+    --ds-primary-gradient: linear-gradient( to left, var(--ds-primary-low), var(--ds-primary-high) );
+    --ds-support-gradient: linear-gradient( to left, var(--ds-support-low), var(--ds-support-high) );
     color: var(--ds-color-contrast);
     background-color: var(--ds-color-background);
+  }
+}
+@layer theme {
+  a:link {
+    color: var(--ds-link-color);
+  }
+  a:visited {
+    color: var(--ds-link-color-visited);
+  }
+  a.ds-link-hover,
+  a:hover {
+    color: var(--ds-link-color-hover);
+  }
+  a.ds-link-active,
+  a:active {
+    color: var(--ds-link-color-active);
   }
 }
 @layer utility {
