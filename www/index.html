@@ -1,12 +1,65 @@
 <!doctype html>
 <title>The DS - a forward looking design system in pure css</title>
 <link rel="stylesheet" href="../dist/theds.css">
+<style>
+.ds-color {
+    display: flex;
+    text-align: center;
+    font-size: 0.8em;
+    align-items: center;
+    justify-content: center;
+}
+</style>
 <body class="ds-space">
 <h1>The DS - a foward looking design system in pure css</h1>
 
 <h2>Theming</h2>
 
 <h3>Colors</h3>
+<div class="ds-grid">
+    <div class="ds-box ds-color ds-bg-primary">
+        <div class="ds-space">
+            .ds-bg-primary<br>
+            hsl(79,69%,44%)
+        </div>
+    </div>
+    <div class="ds-box ds-color ds-bg-primary-gradient">
+        <div class="ds-space">
+            .ds-bg-primary-gradient<br>
+            hsl(79,99%,27%) - hsl(79,79%,54%)
+        </div>
+    </div>
+    <div class="ds-box ds-color ds-bg-support">
+        <div class="ds-space">
+            .ds-bg-support<br>
+            #d9edf7
+        </div>
+    </div>
+    <div class="ds-box ds-color ds-bg-support-gradient">
+        <div class="ds-space">
+            .ds-bg-support-gradient<br>
+            #bce8f1 - #d9edf7
+        </div>
+    </div>
+    <div class="ds-box ds-color ds-bg-grey-dark">
+        <div class="ds-space">
+            .ds-bg-grey-dark<br>
+            #262C2F
+        </div>
+    </div>
+    <div class="ds-box ds-color ds-bg-grey-medium">
+        <div class="ds-space">
+            .ds-bg-grey-medium<br>
+            #8F9BA6
+        </div>
+    </div>
+    <div class="ds-box ds-color ds-bg-grey-light">
+        <div class="ds-space">
+            .ds-bg-grey-light<br>
+            #EEF1F8
+        </div>
+    </div>
+</div>
 
 <h3>Typography</h3>
 <div style="font-family: 'Alegreya Sans'; font-size: 24px;">

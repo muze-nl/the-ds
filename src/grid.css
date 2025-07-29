@@ -1,0 +1,156 @@
+@layer theme {
+    :root {
+        --ds-grid-space: var(--ds-space);
+        --ds-grid-space-column: var(--ds-grid-space);
+        --ds-grid-space-row: var(--ds-grid-space);
+        --ds-grid-columns: 1;
+        --ds-screen-size: tiny;
+        --ds-grid-min-colwidth: 15rem;
+    }
+    @media (min-width: 480px)  {
+        :root {
+            --ds-screen-size: small;
+        }
+        :root,
+        .ds-grid-2,
+        .ds-grid-3,
+        .ds-grid-4,
+        .ds-grid-6,
+        .ds-grid-12 {
+            --ds-grid-columns: 2;
+        }
+    }
+    @media (min-width: 640px) {
+        :root {
+            --ds-screen-size: tablet;
+        }
+        :root,
+        .ds-grid-4,
+        .ds-grid-6,
+        .ds-grid-12 {
+            --ds-grid-columns: 4;
+        }
+        .ds-grid-3 {
+            --ds-grid-columns: 3;
+        }
+    }
+    @media (min-width: 992px) {
+        :root {
+            --ds-screen-size: medium;
+        }
+        :root,
+        .ds-grid-6,
+        .ds-grid-12 {
+            --ds-grid-columns: 6;
+        }
+        .ds-grid-6,
+        .ds-grid-12 {
+            --ds-grid-columns: 6;
+        }
+    }
+    @media (min-width: 1200px) {
+        :root {
+            --ds-screen-size: large;
+        }
+        .ds-grid-12 {
+            --ds-grid-columns: 12;
+        }
+    }
+    @media (min-width: 1800px) {
+        :root {
+            --ds-screen-size: extra-large;
+        }
+    }
+}
+
+@layer base {
+    .ds-grid-fixed {
+        display: grid;
+        grid-column-gap: var(--ds-grid-spacing-column);
+        grid-row-gap: var(--ds-grid-spacing-row);
+        /* add row-gap/column-gap or gap */
+        grid-auto-flow: row;
+        grid-template-rows: repeat(1, auto);
+        grid-template-columns: repeat(var(--ds-grid-columns), 1fr);
+    }
+    .ds-grid-dense {
+        grid-auto-flow: dense;
+    }
+    .ds-grid-fixed > * { /* FIXME: only target grid items */
+        max-width: 100%;
+        overflow: hidden; /* FIXME: better alternative? */
+    }
+    .ds-grid-span-2 {
+        grid-column: auto / span 2;
+    }
+    .ds-grid-span-3 {
+        grid-column: auto / span 3;
+    }
+    .ds-grid-span-4 {
+        grid-column: auto / span 4;
+    }
+    .ds-grid-span-5 {
+        grid-column: auto / span 5;
+    }
+    .ds-grid-span-6 {
+        grid-column: auto / span 6;
+    }
+    .ds-grid-span-7 {
+        grid-column: auto / span 7;
+    }
+    .ds-grid-span-8 {
+        grid-column: auto / span 8;
+    }
+    .ds-grid-span-9 {
+        grid-column: auto / span 9;
+    }
+    .ds-grid-span-10 {
+        grid-column: auto / span 10;
+    }
+    .ds-grid-span-11 {
+        grid-column: auto / span 11;
+    }
+    .ds-grid-span-6 {
+        grid-column: auto / span 12;
+    }
+    .ds-grid-span-all {
+        grid-column: 1 / -1;
+    }
+    .ds-grid-row-2 {
+        grid-row: auto / span 2;
+    }
+    .ds-grid-row-3 {
+        grid-row: auto / span 3;
+    }
+    .ds-grid-row-4 {
+        grid-row: auto / span 4;
+    }
+    .ds-grid-row-5 {
+        grid-row: auto / span 5;
+    }
+    .ds-grid-row-6 {
+        grid-row: auto / span 6;
+    }
+    .ds-grid-row-7 {
+        grid-row: auto / span 7;
+    }
+    .ds-grid-row-8 {
+        grid-row: auto / span 8;
+    }
+    .ds-grid-row-9 {
+        grid-row: auto / span 9;
+    }
+    .ds-grid-row-10 {
+        grid-row: auto / span 10;
+    }
+
+    /* flexible grid */
+    .ds-grid {
+        --ds-grid-spacing-column: var(--ds-grid-spacing);
+        --ds-grid-spacing-row: var(--ds-grid-spacing);
+        display: grid;
+        grid-column-gap: var(--ds-grid-spacing-column);
+        grid-row-gap: var(--ds-grid-spacing-row);
+        grid-template-columns: repeat(auto-fit, minmax(var(--ds-grid-min-colwidth), 1fr));
+    }
+}
