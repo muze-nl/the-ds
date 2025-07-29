@@ -1,0 +1,53 @@
+/* --ds-line-height is defined in typography.css */
+@layer theme {
+    :root {
+        --ds-space: var(--ds-line-height);
+    }
+}
+
+@layer utility {
+    .ds-margin-up {
+        margin-block-start: calc(-1 * var(--ds-space));
+    }
+    .ds-no-space {
+        margin: 0;
+    }
+    .ds-space {
+        margin: var(--ds-space);
+    }
+    .ds-space-vertical {
+        margin: var(--ds-space) 0;
+    }
+    .ds-space-horizontal {
+        margin-inline-start: var(--ds-space);
+        margin-inline-end: var(--ds-space);
+    }
+    .ds-space-left {
+        margin-inline-start: var(--ds-space);
+    }
+    .ds-space-right {
+        margin-inline-end: var(--ds-space);
+    }
+    .ds-space-top {
+        margin-block-start: var(--ds-space);
+    }
+    .ds-space-bottom {
+        margin-block-end: var(--ds-space);
+    }
+
+    .ds-space-inside {
+      padding: 0 var(--ds-space);
+    }
+    .ds-space-inside::before,
+    .ds-space-inside::after {
+      content: "";
+      display: block;
+      height: 0;
+    }
+    .ds-space-inside::before {
+      margin-block-end: var(--ds-space);
+    }
+    .ds-space-inside::after {
+      margin-block-start: var(--ds-space);
+    }
+}

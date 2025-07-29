@@ -9,7 +9,6 @@
     --ds-background:var(--white);
     --ds-heading-weight: 400;
     --ds-heading-multiplier: 1.27201965;
-    --ds-space: var(--ds-line-height);
   }
 }
 @layer base {
