@@ -1,0 +1,36 @@
+/* forms */
+@layer theme {
+  :root {
+    --ds-input-border: var(--ds-grey-low);
+    --ds-input-space: var(--ds-space);
+    --ds-input-font: var(--ds-font-family);
+    --ds-input-radio-space: 0.2em;
+    --ds-input-height: calc(var(--ds-line-height) * 1.5);
+    --ds-input-margin: calc(var(--ds-line-height) * 0.5);
+  }
+}
+@layer base {
+  .ds-form-group {
+    margin: var(--ds-input-space) 0;
+  }
+  label {
+    display: block;
+    margin: var(--ds-input-space) 0;
+  }
+  input:not([type="radio"],[type="checkbox"]), select {
+    width: 100%;
+    display: block;
+    height: var(--ds-input-height);
+    margin: 0;
+    margin-bottom: var(--ds-input-margin);
+    box-sizing: border-box;
+    background: inherit;
+    color: inherit;
+    border: 0px;
+    outline: 1px solid var(--ds-input-border);
+    padding: 0 0.5em;
+    font-family: var(--ds-input-font);
+    font-size: inherit;
+    line-height: inherit;
+  }
+}
