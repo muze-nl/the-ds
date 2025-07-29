@@ -134,16 +134,19 @@
   .ds-color-primary {
       color: var(--ds-primary);
   }
-  .ds-color-primary-dark {
+  .ds-color-primary-high {
       color: var(--ds-primary-high);
   }
   .ds-color-support {
       color: var(--ds-support);
   }
-  .ds-color-grey-light {
-      color: var(--ds-grey-light);
+  .ds-color-grey-low {
+      color: var(--ds-grey-low);
   }
   .ds-color-grey-medium {
       color: var(--ds-grey-medium);
+  }
+  .ds-color-grey-high {
+      color: var(--ds-grey-high);
   }
 }
