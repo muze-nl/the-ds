@@ -38,6 +38,11 @@
       margin: var(--ds-space) 0;
   }
   dd, li, blockquote {
-      margin-left: var(--ds-space);
+      margin-inline-start: var(--ds-space);
+  }
+}
+@layer utility {
+  .ds-margin-up {
+      margin-block-start: calc(-1 * var(--ds-line-height));
   }
 }
