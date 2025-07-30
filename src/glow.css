@@ -1,0 +1,25 @@
+@layer theme {
+  :root {
+    --ds-glow-1: rgb(from var(--ds-white) r g b / 0.2);
+    --ds-glow-2: rgb( from var(--ds-primary) r g b / 0.5);
+    --ds-glow-3: rgb(from var(--ds-grey-medium) r g b / 0.2);
+  }
+}
+@layer base {
+  :root {
+    --dsb-glow-shadow: 
+        0 0 8px 2px var(--ds-glow-1),
+        0 0 15px 15px var(--ds-glow-2),
+        0 0 25px 25px var(--ds-glow-3);
+  }
+  .ds-glow, .ds-glow-hover:hover, .ds-glow-focus:focus {
+    box-shadow: var(--dsb-glow-shadow);
+  }
+  .ds-glow-support {
+    --ds-glow-2: rgb( from var(--ds-support) r g b / 0.5);
+    --dsb-glow-shadow: 
+        0 0 8px 2px var(--ds-glow-1),
+        0 0 15px 15px var(--ds-glow-2),
+        0 0 25px 25px var(--ds-glow-3);
+  }
+}
