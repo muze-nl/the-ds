@@ -79,7 +79,7 @@
     --ds-grey-high: var(--ds-grey-0);
     --ds-grey-medium: var(--ds-grey-60);
     --ds-grey-low: var(--ds-grey-80);
-    --ds-support-high: var(-ds-support-0);
+    --ds-support-high: var(--ds-support-0);
     --ds-support-low: var(--ds-support-90);
     --ds-primary-high: var(--ds-primary-0);
     --ds-primary-low: var(--ds-primary-90);
@@ -95,12 +95,16 @@
       --ds-grey-high: var(--ds-grey-0);
       --ds-grey-medium: var(--ds-grey-60);
       --ds-grey-low: var(--ds-grey-80);
+      --ds-support-high: var(--ds-support-0);
+      --ds-support-low: var(--ds-support-90);
+      --ds-primary-high: var(--ds-primary-0);
+      --ds-primary-low: var(--ds-primary-90);
     }
   }
   :root, .ds-darkmode, .ds-lightmode, .ds-darkmode-auto {
     --ds-color-contrast: rgb(from var(--ds-color-background) var(--channel) var(--channel) var(--channel));
-    --ds-primary-gradient: linear-gradient( to left, var(--ds-primary-low), var(--ds-primary-high) );
-    --ds-support-gradient: linear-gradient( to left, var(--ds-support-low), var(--ds-support-high) );
+    --ds-primary-gradient: linear-gradient( to bottom, var(--ds-primary-low), var(--ds-primary-high) );
+    --ds-support-gradient: linear-gradient( to bottom, var(--ds-support-low), var(--ds-support-high) );
     color: var(--ds-color-contrast);
     background-color: var(--ds-color-background);
   }
