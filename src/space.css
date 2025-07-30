@@ -4,7 +4,16 @@
         --ds-space: var(--ds-line-height);
     }
 }
-
+@layer base {
+    :root {
+        --ds-space-d4: calc(var(--ds-space) / 4);
+        --ds-space-d3: calc(var(--ds-space) / 3);
+        --ds-space-d2: calc(var(--ds-space) / 2);
+        --ds-space-x2: calc(2 * var(--ds-space));
+        --ds-space-x3: calc(3 * var(--ds-space));
+        --ds-space-x4: calc(4 * var(--ds-space));
+    }
+}
 @layer utility {
     @supports (display: flow-root) {
         .ds-space-contain {
@@ -47,6 +56,7 @@
       padding: 0 var(--ds-space);
     }
 
+    /* FIXME: this seems broken check out why */
     .ds-space-inside-vertical::befofe,
     .ds-space-inside-vertical::after,
     .ds-space-inside::before,
