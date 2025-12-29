@@ -1,9 +1,9 @@
 {
   "name": "@muze-nl/theds",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Forward looking design system",
   "type": "module",
-  "main": "src/theds.mjs",
+  "main": "js/theds.mjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/muze-nl/theds.git"
