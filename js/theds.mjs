@@ -1,9 +1,9 @@
 export default {
 	css: {
-		import: css`url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');`,
-		layers: css`url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');
+		dsImport: css`url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');`,
+		dsLayers: css`url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');
 @layer reset, setup, theme, base, component, page, utility;`,
-		reset: css`@layer reset {
+		dsReset: css`@layer reset {
     body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {
         margin:0; 
         padding:0; 
@@ -16,7 +16,7 @@ export default {
         box-sizing: border-box;
     }
 }`,
-		colors: css`@layer setup {
+		dsColors: css`@layer setup {
   :root {
     --ds-black: #000;
     --ds-white: #FFF;
@@ -198,7 +198,7 @@ export default {
       color: var(--ds-grey-high);
   }
 }`,
-		space: css`@layer theme {
+		dsSpace: css`@layer theme {
     :root {
         --ds-space: var(--ds-line-height);
     }
@@ -273,13 +273,13 @@ export default {
       margin-block-start: var(--ds-space);
     }
 }`,
-		fonts: css`@layer theme {
+		dsFonts: css`@layer theme {
     :root {
         --ds-font-heading: 'Alegreya Sans', sans-serif;
         --ds-font-body: 'Quicksand', Helvetica, sans-serif;
     }
 }`,
-		typography: css`@layer theme {
+		dsTypography: css`@layer theme {
   :root {
     --ds-font-weight: 300;
     --ds-line-height: 1.6rem;
@@ -324,7 +324,7 @@ export default {
       margin-block-start: calc(-1 * var(--ds-line-height));
   }
 }`,
-		icons: css`@layer theme {
+		dsIcons: css`@layer theme {
   :root {
     --ds-icon-height: var(--ds-line-height);
   }
@@ -344,7 +344,7 @@ export default {
     fill: none;
   }
 }`,
-		forms: css`@layer theme {
+		dsForms: css`@layer theme {
   :root {
     --ds-input-border: var(--ds-grey-low);
     --ds-input-space: var(--ds-space);
@@ -422,7 +422,7 @@ export default {
   }
 
 }`,
-		buttons: css`@layer theme {
+		dsButtons: css`@layer theme {
   :root {
     --ds-button-space: calc(0.5 * var(--ds-input-space));
     --ds-button-bg-color: var(--ds-grey-light);
@@ -559,7 +559,7 @@ export default {
     transform: translateY(0);
   }
 }`,
-		grid: css`@layer theme {
+		dsGrid: css`@layer theme {
     :root {
         --ds-grid-space: var(--ds-space);
         --ds-grid-space-column: var(--ds-grid-space);
@@ -710,7 +710,7 @@ export default {
         grid-template-columns: repeat(auto-fit, minmax(var(--ds-grid-min-colwidth), 1fr));
     }
 }`,
-		glow: css`@layer theme {
+		dsGlow: css`@layer theme {
   :root {
     --ds-glow-1: rgb(from var(--ds-white) r g b / 0.2);
     --ds-glow-2: rgb( from var(--ds-primary) r g b / 0.5);
@@ -736,7 +736,7 @@ export default {
         0 0 25px 25px var(--ds-glow-3);
   }
 }`,
-		box: css`@layer theme {
+		dsBox: css`@layer theme {
   :root {
     --ds-box-radius: 3px;
     --ds-box-shadow: var(--ds-shadow-small);
@@ -764,7 +764,7 @@ export default {
     border-bottom-right-radius: var(--ds-box-radius);
   }
 }`,
-		dialog: css`@layer theme {
+		dsDialog: css`@layer theme {
   :root {
     --ds-dialog-radius: calc( 2 * var(--ds-box-radius));
     --ds-dialog-shadow: var(--ds-shadow-large);
@@ -821,7 +821,7 @@ export default {
     }
   }
 }`,
-		dropdown: css`@layer theme {
+		dsDropdown: css`@layer theme {
   :root {
     --ds-dropdown-background: white;
     --ds-dropdown-width: 200px;
@@ -915,7 +915,7 @@ export default {
     left: calc(50% - 0.25rem);
   }
 }`,
-		tabs: css`@layer theme {
+		dsTabs: css`@layer theme {
   :root {
     --ds-tabs-space: var(--ds-button-space);
     --ds-tabs-bg-color: var(--ds-background);
@@ -1043,8 +1043,103 @@ export default {
     background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-border-color) 0px, var(--ds-tabs-border-color) 1px, transparent 1px);
   }
 }`,
-		badge: css``,
-		navigation: css`@layer theme {
+		dsBadge: css`@layer theme {
+  :root {
+    --ds-badge-color: var(--ds-grey-50);
+    --ds-badge-font-color: var(--ds-white);
+    --ds-badge-label-color: var(--ds-primary);
+    --ds-badge-label-contrast-color: var(--ds-primary-contrast);
+    --ds-badge-font-size: 0.66em;
+    --ds-badge-height: 2em;
+  }
+}
+@layer component {
+  .ds-badge {
+    font-size: var(--ds-badge-font-size);
+    display: inline-block;
+    align-items: center;
+    background: var(--ds-badge-color);
+    color: var(--ds-badge-font-color);
+    border-radius: 0.3em;
+    padding: 0 0.6em;
+    text-align: center;   
+    margin: 0.05em 0;
+    margin-right: 0.3em;
+    line-height: var(--ds-badge-height);
+    max-height: var(--ds-badge-height);
+    position: relative;
+  }
+  .ds-badge-label,
+  .ds-badge > label {
+    display: inline-flex;
+    margin: 0;
+    margin-left: -0.6em;
+    margin-right: 0.6em;
+    padding: 0 0.5em;
+    background: var(--ds-badge-label-color);
+    color: var(--ds-badge-label-contrast-color);
+    float: left;
+    min-height: var(--ds-badge-height);
+    align-items: center;
+    border-radius: 0.3em 0 0 0.3em;
+  }
+  a.ds-badge {
+    color: inherit;
+  }
+  .ds-badge label .ds-icon,
+  .ds-badge-label .ds-icon {
+    margin-top: 0;
+    height: var(--ds-badge-height);
+  }
+  .ds-badge-inline {
+    display: inline;
+  }
+  .ds-badge-inverted {
+    background: var(--ds-badge-label-color);
+    color: var(--ds-badge-label-contrast-color);
+  }
+  .ds-badge-inverted .ds-badge-label {
+    background: var(--ds-badge-color);
+    color: var(--ds-badge-font-color);
+  }
+  .ds-badge-tag {
+    position: relative;
+    border-radius: 0.3em 0 0 0.3em;
+    padding-right: 0.2em;
+    margin-right: 0.6em;
+  }
+  .ds-badge-tag::after {
+    content: "";
+    display: block;
+    border: calc(0.5 * var(--ds-badge-height)) solid transparent;
+    border-left: 0.8em solid var(--ds-badge-color); 
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+  .ds-badge-tag-reverse {
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    padding-left: 0.2em;
+    margin-left: 0.6em;
+  }
+  .ds-badge-tag-reverse::before {
+    content: "";
+    display: block;
+    border: calc(0.5 * var(--ds-badge-height)) solid transparent;
+    border-right: 0.8em solid var(--ds-badge-color); 
+    position: absolute;
+    top: 0;
+    right: 100%;
+  }
+  .ds-badge-inverted.ds-badge-tag::after {
+    border-left-color: var(--ds-badge-label-color);
+  }
+  .ds-badge-inverted.ds-badge-tag-reverse::before {
+    border-right-color: var(--ds-badge-label-color);
+  }
+}`,
+		dsNavigation: css`@layer theme {
   :root {
     --ds-navbar-shadow: var(--ds-shadow-small);
     --ds-navbar-space: calc(0.5 * var(--ds-space));
@@ -1125,7 +1220,7 @@ export default {
     background: rgba(0,0,0,0.2);
   }
 }`,
-		toast: css`@layer theme {
+		dsToast: css`@layer theme {
   :root {
     --ds-toast-height: 60px;
     --ds-toast-hide-delay: 3s; /* 5 seems better */
@@ -1237,7 +1332,7 @@ export default {
     animation-delay: 0s, var(--ds-toast-hide-delay);
   }
 }`,
-		float: css`@layer utility {
+		dsAlignment: css`@layer utility {
   .ds-center {
     text-align: center;
     margin-left: auto;
@@ -1252,8 +1347,8 @@ export default {
     float: right;
   }
 }`,
-		background: css``,
-		shadow: css`@layer theme {
+		dsBackground: css``,
+		dsShadow: css`@layer theme {
   :root {
     --ds-shadow-light: rgba(0,0,0,0.07);
     --ds-shadow-middle: rgba(0,0,0,0.09);
