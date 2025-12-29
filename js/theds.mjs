@@ -1,8 +1,7 @@
 export default {
 	css: {
-		dsImport: css`url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');`,
-		dsLayers: css`url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');
-@layer reset, setup, theme, base, component, page, utility;`,
+		dsImport: css`@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap');`,
+		dsLayers: css`@layer reset, setup, theme, base, component, page, utility;`,
 		dsReset: css`@layer reset {
     body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {
         margin:0; 

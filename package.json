@@ -1,6 +1,6 @@
 {
   "name": "@muze-nl/theds",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Forward looking design system",
   "type": "module",
   "main": "js/theds.mjs",
