@@ -1,0 +1,23 @@
+{
+  "name": "@muze-nl/theds",
+  "version": "0.1.0",
+  "description": "Forward looking design system",
+  "type": "module",
+  "main": "src/theds.mjs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/muze-nl/theds.git"
+  },
+  "author": "auke@muze.nl",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/muze-nl/theds/issues"
+  },
+  "homepage": "https://github.com/muze-nl/theds/#readme",
+  "files": [
+    "/js",
+    "/dist",
+    "/LICENSE",
+    "/README.md"
+  ]
+}
