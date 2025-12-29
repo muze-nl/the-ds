@@ -1,0 +1,138 @@
+/* buttons */
+@layer theme {
+  :root {
+    --ds-button-space: calc(0.5 * var(--ds-input-space));
+    --ds-button-bg-color: var(--ds-grey-light);
+    --ds-button-default-bg-color: var(--ds-white);
+    --ds-button-border-color: var(--ds-grey-light);
+    --ds-button-disabled-color: var(--ds-grey-medium);
+    --ds-button-disabled-bg-color: var(--ds-white);
+    --ds-button-primary-bg-color: var(--ds-primary);
+    --ds-button-primary-color: var(--ds-primary-contrast);
+    --ds-button-primary-border: none;
+    --ds-button-support-bg-color: var(--ds-support);
+    --ds-button-support-color: var(--ds-support-contrast);
+    --ds-button-support-border: none;
+    --ds-button-line-height: calc(var(--ds-line-height) * 1.5);
+    --ds-button-shadow: 0;
+    --ds-button-shadow-hover: var(--ds-shadow-small);
+    --ds-button-radius: 2px;
+  }
+}
+@layer base {
+  :root .ds-button {
+    line-height: var(--ds-button-line-height);
+    min-height: var(--ds-button-line-height);
+  }
+  .ds-button {
+    margin: 0 var(--ds-button-space) var(--ds-button-space) 0;
+    overflow: visible;
+    font: inherit;
+    color: inherit;
+    display: inline-block;
+    box-sizing: border-box;
+    padding: 0 calc(0.5 * var(--ds-line-height));
+    vertical-align: middle;
+    font-size: calc(0.875 * var(--ds-font-size));
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    background-color: var(--ds-button-bg-color);
+    outline: var(--ds-button-border);
+    border: 0;
+    white-space: nowrap;
+    box-shadow: var(--ds-button-shadow);
+    border-radius: var(--ds-button-radius);
+  }
+  .ds-button::-moz-focus-inner {
+    border: 0;
+  }
+  .ds-button:hover,
+  .ds-button:focus {
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--ds-button-shadow-hover);
+  }
+  a.ds-button,
+  a.ds-button:hover,
+  a.ds-button:active,
+  a.ds-button:visited {
+    color: inherit;
+  }
+  .ds-button-default {
+    background-color: var(--ds-button-default-bg-color);
+  }
+  a.ds-button-primary, a.ds-button-primary:hover,
+  a.ds-button-primary:active, a.ds-button-primary:visited,
+  .ds-button-primary, .ds-button-primary:hover {
+    background-color: var(--ds-button-primary-bg-color);
+    color: var(--ds-button-primary-color);
+    border-color: var(--ds-button-primary-border-color);
+    text-shadow: #666 0 0 1px;
+  }
+  a.ds-button-support, a.ds-button-support:hover,
+  a.ds-button-support:active, a.ds-button-support:visited,
+  .ds-button-support, .ds-button-support:hover {
+    background-color: var(--ds-button-support-bg-color);
+    color: var(--ds-button-support-color);
+    border-color: var(--ds-button-support-border-color);
+  }
+  .ds-button:disabled {
+    background-color: var(--ds-button-disabled-bg-color);
+    color: var(--ds-button-disabled-color);
+  }
+  .ds-button:disabled:hover {
+    cursor: not-allowed;
+    box-shadow: 0 0 0;
+  }
+  .ds-button-group {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .ds-button-light {
+    background: none;
+    outline: 0;
+    padding: 0;
+  }
+  .ds-button-naked {
+    background: none;
+    outline: 0;
+  }
+  .ds-button-close {
+    position: absolute;
+    right: var(--ds-button-space);
+    margin: 0;
+  }
+  .ds-button-grow {
+    display: block;
+    width: 100%;
+  }
+  /* icon buttons */
+  .ds-button .ds-icon {
+    height: var(--ds-button-line-height);
+  }
+  .ds-button-bar .ds-button:not(:last-child):not(:only-child) {
+    margin-right: 0;
+    border-right: 0;
+  }
+  /* icon buttons with state */
+  .ds-button[data-simply-state] {
+    height: var(--ds-button-line-height);
+    overflow: hidden;
+    width: 1em;
+    box-sizing: content-box;
+    white-space: normal;
+  }
+  .ds-button[data-simply-state] .ds-icon {
+    width: 1em;
+    height: var(--ds-button-line-height);
+    transform: translateY(calc(-1 * var(--ds-button-line-height)));
+    transition: transform 0.2s ease;
+    display: block;
+    margin: 0;
+  }
+  .ds-button[data-simply-state="alt"] .ds-icon {
+    transform: translateY(0);
+  }
+}

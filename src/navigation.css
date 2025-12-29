@@ -1,0 +1,82 @@
+/* navigation */
+@layer theme {
+  :root {
+    --ds-navbar-shadow: var(--ds-shadow-small);
+    --ds-navbar-space: calc(0.5 * var(--ds-space));
+    --ds-navbar-line-height: var(--ds-line-height);
+    --ds-navbar-side-space: calc(0.3 * var(--ds-space));
+  }
+}
+@layer component {
+  .ds-navbar {
+    display: flex;
+    box-shadow: var(--ds-navbar-shadow);
+  }
+  ul.ds-navbar {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .ds-navbar .ds-button,
+  .ds-navbar input,
+  .ds-navbar select {
+    border-top: 0;
+    border-bottom: 0;
+    outline: 0;
+    margin-bottom: 0;
+  }
+  .ds-navbar-left {
+    padding-left: 1em;
+  }
+  .ds-navbar-right {
+    margin-left: auto;
+    margin-right: 1em;
+  }
+  .ds-navbar-center {
+    margin: 0 auto;
+  }
+  .ds-navbar-nav {
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+  .ds-navbar-nav li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .ds-navbar-nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0 var(--ds-navbar-space) 0 0;
+  }
+  .ds-navbar-nav .ds-button {
+    margin-bottom: 0;
+  }
+  .ds-navbar-nav .ds-button:last-child {
+    margin-right: 0;
+  }
+  .asteroid-user-button {
+    position: absolute;
+    right: 1em;
+  }
+  /* sidebar */
+  .ds-navbar-side,
+  .ds-navbar-side .ds-navbar-nav {
+    flex-direction: column;
+  }
+  .ds-navbar-side .ds-nav {
+    display: block;
+    position: relative;
+    padding: calc(0.5 * var(--ds-navbar-line-height));
+    text-align: left;
+  }
+  .ds-navbar-side .ds-nav .ds-icon {
+    margin-right: var(--ds-navbar-size-space);
+  }
+  .ds-navbar-side .ds-selected,
+  .ds-navbar-side .ds-nav:hover,
+  .ds-navbar-side .ds-nav-hover {
+    background: rgba(0,0,0,0.2);
+  }
+}

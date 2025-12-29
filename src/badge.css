@@ -1,0 +1,96 @@
+@layer theme {
+  :root {
+    --ds-badge-color: var(--ds-grey-50);
+    --ds-badge-font-color: var(--ds-white);
+    --ds-badge-label-color: var(--ds-primary);
+    --ds-badge-label-contrast-color: var(--ds-primary-contrast);
+    --ds-badge-font-size: 0.66em;
+    --ds-badge-height: 2em;
+  }
+}
+@layer component {
+  .ds-badge {
+    font-size: var(--ds-badge-font-size);
+    display: inline-block;
+    align-items: center;
+    background: var(--ds-badge-color);
+    color: var(--ds-badge-font-color);
+    border-radius: 0.3em;
+    padding: 0 0.6em;
+    text-align: center;   
+    margin: 0.05em 0;
+    margin-right: 0.3em;
+    line-height: var(--ds-badge-height);
+    max-height: var(--ds-badge-height);
+    position: relative;
+  }
+  .ds-badge-label,
+  .ds-badge > label {
+    display: inline-flex;
+    margin: 0;
+    margin-left: -0.6em;
+    margin-right: 0.6em;
+    padding: 0 0.5em;
+    background: var(--ds-badge-label-color);
+    color: var(--ds-badge-label-contrast-color);
+    float: left;
+    min-height: var(--ds-badge-height);
+    align-items: center;
+    border-radius: 0.3em 0 0 0.3em;
+  }
+  a.ds-badge {
+    color: inherit;
+  }
+  .ds-badge label .ds-icon,
+  .ds-badge-label .ds-icon {
+    margin-top: 0;
+    height: var(--ds-badge-height);
+  }
+  .ds-badge-inline {
+    display: inline;
+  }
+  .ds-badge-inverted {
+    background: var(--ds-badge-label-color);
+    color: var(--ds-badge-label-contrast-color);
+  }
+  .ds-badge-inverted .ds-badge-label {
+    background: var(--ds-badge-color);
+    color: var(--ds-badge-font-color);
+  }
+  .ds-badge-tag {
+    position: relative;
+    border-radius: 0.3em 0 0 0.3em;
+    padding-right: 0.2em;
+    margin-right: 0.6em;
+  }
+  .ds-badge-tag::after {
+    content: "";
+    display: block;
+    border: calc(0.5 * var(--ds-badge-height)) solid transparent;
+    border-left: 0.8em solid var(--ds-badge-color); 
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+  .ds-badge-tag-reverse {
+    position: relative;
+    border-radius: 0 5px 5px 0;
+    padding-left: 0.2em;
+    margin-left: 0.6em;
+  }
+  .ds-badge-tag-reverse::before {
+    content: "";
+    display: block;
+    border: calc(0.5 * var(--ds-badge-height)) solid transparent;
+    border-right: 0.8em solid var(--ds-badge-color); 
+    position: absolute;
+    top: 0;
+    right: 100%;
+  }
+  .ds-badge-inverted.ds-badge-tag::after {
+    border-left-color: var(--ds-badge-label-color);
+  }
+  .ds-badge-inverted.ds-badge-tag-reverse::before {
+    border-right-color: var(--ds-badge-label-color);
+  }
+}

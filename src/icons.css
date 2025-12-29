@@ -1,0 +1,21 @@
+/* icons */
+@layer theme {
+  :root {
+    --ds-icon-height: var(--ds-line-height);
+  }
+}
+@layer base {
+  .ds-icon {
+    display: inline-block;
+    height: var(--ds-icon-height);
+    width: 1em;
+    vertical-align: bottom;
+  }
+  .ds-icon-feather {
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: square;
+    stroke-linejoin: square;
+    fill: none;
+  }
+}

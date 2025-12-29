@@ -1,0 +1,58 @@
+/* dialog */
+@layer theme {
+  :root {
+    --ds-dialog-radius: calc( 2 * var(--ds-box-radius));
+    --ds-dialog-shadow: var(--ds-shadow-large);
+    --ds-dialog-size: calc( 50% - (1/2 * var(--ds-spacing)));
+    --ds-dialog-narrow: calc( 33% - (1/2 * var(--ds-spacing)));
+    --ds-dialog-min-width: 20em;
+    --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
+  }
+}
+@layer component {
+  .ds-dialog {
+    border: 0;
+    width: var(--ds-dialog-size);
+    min-width: var(--ds-dialog-min-width);
+    box-shadow: var(--ds-dialog-shadow);
+    padding: 0;
+    z-index: 101;
+    border-radius: calc(2px + var(--ds-dialog-radius));
+  }
+  .ds-dialog-narrow {
+    width: var(--ds-dialog-narrow);
+  }
+  .ds-dialog-header,
+  .ds-dialog-header-image > img {
+    border-radius: var(--ds-dialog-radius) var(--ds-dialog-radius) 0 0;
+  }
+  .ds-dialog-footer,
+  .ds-dialog-footer-image > img {
+    border-radius: 0 0 var(--ds-dialog-radius) var(--ds-dialog-radius);
+  }
+  .ds-dialog-header,
+  .ds-dialog-footer {
+    flex-grow: 0;
+  }
+  .ds-dialog-header,
+  .ds-dialog-footer,
+  .ds-dialog-content {
+    position: relative;
+    padding: 0.05px; 
+  }
+  .ds-dialog-header-image,
+  .ds-dialog-footer-image {
+    min-height: var(--ds-dialog-image-size);
+  }
+  .ds-dialog-content {
+    flex-grow: 1;
+  }
+  .ds-dialog::backdrop {
+    background-color: rgba(0,0,0,0.5);
+  }
+  @media (max-width: 480px)  {
+    .ds-dialog-narrow {
+      min-width: 100%;
+    }
+  }
+}

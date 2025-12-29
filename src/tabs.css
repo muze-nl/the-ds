@@ -1,0 +1,129 @@
+/* tabs */
+@layer theme {
+  :root {
+    --ds-tabs-space: var(--ds-button-space);
+    --ds-tabs-bg-color: var(--ds-background);
+    --ds-tabs-color: var(--ds-color);
+    --ds-tabs-default-bg-color: transparent;
+    --ds-tabs-primary-bg-color: var(--ds-primary);
+    --ds-tabs-primary-color: var(--ds-primary-contrast);
+    --ds-tabs-line-height: var(--ds-button-line-height);
+    --ds-tabs-border-color: var(--ds-primary);
+    --ds-tabs-direction: row;
+    --ds-tabs-border-alignment: top;
+    --ds-tabs-radius: var(--ds-button-radius);
+    --ds-tabs-font-size: calc(0.875 * var(--ds-font-size));
+    --ds-tabs-unselected-background: var(--ds-grey-20);
+  }
+}
+@layer component {
+  .ds-tabs {
+    display: flex;
+    flex-direction: var(--ds-tabs-direction);
+    margin: 0;
+    list-style: none;
+    padding: 0 0 1px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .ds-tabs li {
+    margin: 0;
+    padding: 0;
+  }
+  :root .ds-tabs-tab {
+    line-height: var(--ds-tabs-line-height);
+    min-height: var(--ds-tabs-line-height);
+  }
+
+  .ds-tabs-tab {
+    display: block;
+    margin: 0;
+    overflow: visible;
+    box-sizing: border-box;
+    margin: 0 var(--ds-tabs-space) 0 0;
+    padding: 0 calc(0.5 * var(--ds-tabs-line-height));
+    vertical-align: middle;
+    font-size: var(--ds-tabs-font-size);
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+    border: 0;
+    white-space: nowrap;
+    border-radius: var(--ds-tabs-radius) var(--ds-tabs-radius) 0 0;
+  }
+  .ds-tabs-tab:hover,
+  .ds-tabs-tab:focus {
+    cursor: pointer;
+    text-decoration: none;
+  }
+  a.ds-tabs-tab,
+  a.ds-tabs-tab:hover,
+  a.ds-tabs-tab:active,
+  a.ds-tabs-tab:visited {
+    color: inherit;
+  }
+  .ds-tabs-support {
+    --ds-tabs-border-color: var(--ds-support);
+  }
+  .ds-tabs-primary {
+    --ds-tabs-border-color: var(--ds-primary);
+  }
+  .ds-tabs-primary .ds-tabs-tab,
+  .ds-tabs a.ds-tabs-primary, .ds-tabs a.ds-tabs-primary:hover,
+  .ds-tabs a.ds-tabs-primary:active, .ds-tabs a.ds-tabs-primary:visited {
+    background-color: var(--ds-primary);
+    color: var(--ds-primary-contrast);
+    border-color: var(--ds-tabs-border-color);
+  }
+  .ds-tabs-support .ds-tabs-tab,
+  .ds-tabs a.ds-tabs-support, .ds-tabs a.ds-tabs-support:hover,
+  .ds-tabs a.ds-tabs-support:active, .ds-tabs a.ds-tabs-support:visited {
+    background-color: var(--ds-support);
+    color: var(--ds-support-contrast);
+    border-color: var(--ds-tabs-border-color);
+  }
+  .ds-tabs-border li {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-border-color) 0px, var(--ds-tabs-border-color) 1px, transparent 1px);
+    padding-bottom: 1px;
+  }
+  .ds-tabs-border .ds-tabs-tab-selected {
+    border: 1px solid var(--ds-tabs-border-color);
+    border-bottom: 0;
+    position: relative;
+    top: 1px;
+    line-height: calc(var(--ds-tabs-line-height) - 1px);
+    background: var(--ds-tabs-bg-color);
+  }
+  .ds-tabs-border .ds-tabs-tab-selected {
+    position: relative;
+    top: 1px;
+    line-height: calc(var(--ds-tabs-line-height) - 1px);
+  }
+  .ds-tabs-border-bottom li {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-border-color) 0px, var(--ds-tabs-border-color) 1px, transparent 1px);
+  }
+  .ds-tabs-border-bottom .ds-tabs-tab-selected {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-border-color) 0px, var(--ds-tabs-border-color) 2px, transparent 2px);
+  }
+  .ds-tabs-border-color li {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-unselected-background) 0px, var(--ds-tabs-unselected-background) 1px, transparent 1px);
+  }
+  .ds-tabs-border-color .ds-tabs-tab-selected {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-border-color) 0px, var(--ds-tabs-border-color) 1px, transparent 1px);
+  }
+
+  .ds-tabs-vertical {
+    --ds-tabs-direction: column;
+    --ds-tabs-border-alignment: right;
+    flex-direction: var(--ds-tabs-direction);
+  }
+  .ds-tabs-vertical .ds-tabs-tab {
+    text-align: left;
+  }
+  .ds-tabs-vertical.ds-tabs-border-color li {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-unselected-background) 0px, var(--ds-tabs-unselected-background) 1px, transparent 1px);
+  }
+  .ds-tabs-vertical.ds-tabs-border-color .ds-tabs-tab-selected {
+    background: linear-gradient(to var(--ds-tabs-border-alignment), var(--ds-tabs-border-color) 0px, var(--ds-tabs-border-color) 1px, transparent 1px);
+  }
+}

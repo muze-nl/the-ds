@@ -1,0 +1,29 @@
+/* box */
+@layer theme {
+  :root {
+    --ds-box-radius: 3px;
+    --ds-box-shadow: var(--ds-shadow-small);
+  }
+}
+@layer base {
+  .ds-box {
+    border-radius: var(--ds-box-radius);
+    box-shadow: var(--ds-box-shadow);
+    position: relative;
+    break-inside: avoid;
+  }
+  @supports (display: flow-root) {
+    .ds-box {
+      display: flow-root;
+      padding: 0;
+    }
+  }
+  .ds-box-top {
+    border-top-left-radius: var(--ds-box-radius);
+    border-top-right-radius: var(--ds-box-radius);
+  }
+  .ds-box-bottom {
+    border-bottom-left-radius: var(--ds-box-radius);
+    border-bottom-right-radius: var(--ds-box-radius);
+  }
+}

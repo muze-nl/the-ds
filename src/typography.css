@@ -1,9 +1,7 @@
-/* typography */
 @layer theme {
   :root {
-    --ds-font-size: calc(1.25 * 1rem);
     --ds-font-weight: 300;
-    --ds-line-height: calc(1.6 * var(--ds-font-size));
+    --ds-line-height: 1.6rem;
     --ds-heading-weight: 400;
     --ds-heading-multiplier: 1.27201965;
   }
@@ -11,7 +9,6 @@
 @layer base {
   body {
     font-family: var(--ds-font-body);
-    font-size: var(--ds-font-size);
     font-weight: var(--ds-font-weight);
     line-height: var(--ds-line-height);
   }
