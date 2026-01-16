@@ -1223,30 +1223,33 @@ export default {
   }
 }`,
     dsAlert: css`
-:root {
-    --ds-alert-error-color: rgb(253, 143, 143);
-    --ds-alert-warning-color: #FFFFCC;
-    --ds-alert-info-color: rgb(140, 180, 250);
+@layer theme {
+  :root {
+      --ds-alert-error-color: rgb(253, 143, 143);
+      --ds-alert-warning-color: #FFFFCC;
+      --ds-alert-info-color: rgb(140, 180, 250);
+  }
 }
-.ds-alert {
-    padding: 0.05px; /* contain child margins */
-}
-@supports (display: flow-root) {
-    .ds-alert {
-        display: flow-root;
-        padding: 0;
-    }
-}
-.ds-alert-error {
-    background-color: var(--ds-alert-error-color);
-}
-.ds-alert-warning {
-    background-color: var(--ds-alert-warning-color);
-}
-.ds-alert-info {
-    background-color: var(--ds-alert-info-color);
-}
-      `,
+@layer component {
+  .ds-alert {
+      padding: 0.05px; /* contain child margins */
+  }
+  @supports (display: flow-root) {
+      .ds-alert {
+          display: flow-root;
+          padding: 0;
+      }
+  }
+  .ds-alert-error {
+      background-color: var(--ds-alert-error-color);
+  }
+  .ds-alert-warning {
+      background-color: var(--ds-alert-warning-color);
+  }
+  .ds-alert-info {
+      background-color: var(--ds-alert-info-color);
+  }
+}`,
 		dsToast: css`@layer theme {
   :root {
     --ds-toast-height: 60px;
