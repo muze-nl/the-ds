@@ -439,6 +439,8 @@ export default {
     --ds-button-shadow: 0;
     --ds-button-shadow-hover: var(--ds-shadow-small);
     --ds-button-radius: 2px;
+    --ds-button-padding: calc(0.5 * var(--ds-line-height));
+    --ds-button-font-size: calc(0.875 * var(--ds-font-size));
   }
 }
 @layer base {
@@ -453,9 +455,9 @@ export default {
     color: inherit;
     display: inline-block;
     box-sizing: border-box;
-    padding: 0 calc(0.5 * var(--ds-line-height));
+    padding: 0 var(--ds-button-padding);
     vertical-align: middle;
-    font-size: calc(0.875 * var(--ds-font-size));
+    font-size: var(--ds-button-font-size);
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;
@@ -780,12 +782,13 @@ export default {
     min-width: var(--ds-dialog-min-width);
     box-shadow: var(--ds-dialog-shadow);
     padding: 0;
-    z-index: 101;
+    z-index: 1001;
     border-radius: calc(2px + var(--ds-dialog-radius));
   }
   .ds-dialog-narrow {
     width: var(--ds-dialog-narrow);
   }
+
   .ds-dialog-header,
   .ds-dialog-header-image > img {
     border-radius: var(--ds-dialog-radius) var(--ds-dialog-radius) 0 0;
@@ -1219,6 +1222,31 @@ export default {
     background: rgba(0,0,0,0.2);
   }
 }`,
+    dsAlert: css`
+:root {
+    --ds-alert-error-color: rgb(253, 143, 143);
+    --ds-alert-warning-color: #FFFFCC;
+    --ds-alert-info-color: rgb(140, 180, 250);
+}
+.ds-alert {
+    padding: 0.05px; /* contain child margins */
+}
+@supports (display: flow-root) {
+    .ds-alert {
+        display: flow-root;
+        padding: 0;
+    }
+}
+.ds-alert-error {
+    background-color: var(--ds-alert-error-color);
+}
+.ds-alert-warning {
+    background-color: var(--ds-alert-warning-color);
+}
+.ds-alert-info {
+    background-color: var(--ds-alert-info-color);
+}
+      `,
 		dsToast: css`@layer theme {
   :root {
     --ds-toast-height: 60px;
@@ -1231,9 +1259,9 @@ export default {
     --ds-toast-background: var(--ds-grey-80);
     --ds-toast-font-color: var(--ds-white);
     --ds-toast-default-color: var(--ds-grey-50);
-    --ds-toast-error-color: var(--ds-error-color);
-    --ds-toast-info-color: var(--ds-info-color);
-    --ds-toast-warning-color: var(--ds-warning-color);
+    --ds-toast-error-color: var(--ds-alert-error-color);
+    --ds-toast-info-color: var(--ds-alert-info-color);
+    --ds-toast-warning-color: var(--ds-alert-warning-color);
   }
 }
 @layer component {
