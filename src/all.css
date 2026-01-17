@@ -10,6 +10,7 @@
 @import buttons.css;
 @import grid.css;
 @import glow.css;
+@import alert.css;
 @import box.css;
 @import dialog.css;
 @import dropdown.css;
@@ -17,6 +18,6 @@
 @import badge.css;
 @import navigation.css;
 @import toast.css;
-@import float.css;
+@import alignment.css;
 @import background.css;
 @import shadow.css;

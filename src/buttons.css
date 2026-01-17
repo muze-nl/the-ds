@@ -17,6 +17,8 @@
     --ds-button-shadow: 0;
     --ds-button-shadow-hover: var(--ds-shadow-small);
     --ds-button-radius: 2px;
+    --ds-button-padding: calc(0.5 * var(--ds-line-height));
+    --ds-button-font-size: calc(0.875 * var(--ds-font-size));
   }
 }
 @layer base {
@@ -31,9 +33,8 @@
     color: inherit;
     display: inline-block;
     box-sizing: border-box;
-    padding: 0 calc(0.5 * var(--ds-line-height));
-    vertical-align: middle;
-    font-size: calc(0.875 * var(--ds-font-size));
+    padding: 0 var(--ds-button-padding);
+    font-size: var(--ds-button-font-size);
     text-align: center;
     text-decoration: none;
     text-transform: uppercase;

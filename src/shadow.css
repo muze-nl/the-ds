@@ -1,43 +1,43 @@
 @layer theme {
-  :root {
-    --ds-shadow-light: rgba(0,0,0,0.07);
-    --ds-shadow-middle: rgba(0,0,0,0.09);
-    --ds-shadow-dark: rgba(0,0,0,0.11);
-    --ds-shadow-tiny: 
-        0 1px 1px var(--ds-shadow-dark)
-    ;
-    --ds-shadow-small: 
-        0 1px 1px var(--ds-shadow-dark),
-        0 2px 2px var(--ds-shadow-middle),
-        0 4px 4px var(--ds-shadow-light)
-    ;
-    --ds-shadow-medium: 
-        0 1px 1px var(--ds-shadow-middle),
-        0 2px 2px var(--ds-shadow-middle),
-        0 4px 4px var(--ds-shadow-middle),
-        0 6px 8px var(--ds-shadow-middle),
-        0 8px 16px var(--ds-shadow-middle)
-    ;
-    --ds-shadow-large: 
-        0 2px 1px var(--ds-shadow-light),
-        0 4px 2px var(--ds-shadow-light),
-        0 8px 4px var(--ds-shadow-light),
-        0 16px 8px var(--ds-shadow-light),
-        0 32px 16px var(--ds-shadow-light) 
-    ;
-  }
+    :root {
+        --ds-shadow-light: rgba(0,0,0,0.07);
+        --ds-shadow-middle: rgba(0,0,0,0.09);
+        --ds-shadow-dark: rgba(0,0,0,0.11);
+        --ds-shadow-tiny: 
+            0 1px 1px var(--ds-shadow-dark)
+        ;
+        --ds-shadow-small: 
+            0 1px 1px var(--ds-shadow-dark),
+            0 2px 2px var(--ds-shadow-middle),
+            0 4px 4px var(--ds-shadow-light)
+        ;
+        --ds-shadow-medium: 
+            0 1px 1px var(--ds-shadow-middle),
+            0 2px 2px var(--ds-shadow-middle),
+            0 4px 4px var(--ds-shadow-middle),
+            0 6px 8px var(--ds-shadow-middle),
+            0 8px 16px var(--ds-shadow-middle)
+        ;
+        --ds-shadow-large: 
+            0 2px 1px var(--ds-shadow-light),
+            0 4px 2px var(--ds-shadow-light),
+            0 8px 4px var(--ds-shadow-light),
+            0 16px 8px var(--ds-shadow-light),
+            0 32px 16px var(--ds-shadow-light) 
+        ;
+    }
 }
 @layer utility {
-  .ds-shadow-tiny {
-    box-shadow: var(--ds-shadow-tiny);
-  }
-  .ds-shadow-small {
-    box-shadow: var(--ds-shadow-small);
-  }
-  .ds-shadow-medium {
-    box-shadow: var(--ds-shadow-medium);
-  }
-  .ds-shadow-large {
-    box-shadow: var(--ds-shadow-large);
-  }
+    .ds-shadow-tiny {
+        box-shadow: var(--ds-shadow-tiny);
+    }
+    .ds-shadow-small {
+        box-shadow: var(--ds-shadow-small);
+    }
+    .ds-shadow-medium {
+        box-shadow: var(--ds-shadow-medium);
+    }
+    .ds-shadow-large {
+        box-shadow: var(--ds-shadow-large);
+    }
 }

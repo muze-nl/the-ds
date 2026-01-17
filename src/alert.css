@@ -1,0 +1,31 @@
+@layer theme {
+    :root {
+        --ds-alert-error-color: var(--ds-color-error);
+        --ds-alert-warning-color: var(--ds-color-warning);
+        --ds-alert-info-color: var(--ds-color-info);
+        --ds-alert-background-color: var(--ds-grey-30);
+    }
+}
+@layer component {
+    .ds-alert {
+        padding: 0.05px; /* contain child margins */
+    }
+    @supports (display: flow-root) {
+        .ds-alert {
+            display: flow-root;
+            padding: 0;
+        }
+    }
+    .ds-alert {
+        border-left: 10px solid var(--ds-alert-info-color);
+    }
+    .ds-alert-error {
+        border-color: var(--ds-alert-error-color);
+    }
+    .ds-alert-warning {
+        border-color: var(--ds-alert-warning-color);
+    }
+    .ds-alert-info {
+        border-color: var(--ds-alert-info-color);
+    }
+}

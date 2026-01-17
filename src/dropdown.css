@@ -6,7 +6,7 @@
     --ds-dropdown-focus: var(--ds-grey-40);
     --ds-dropdown-shadow: var(--ds-shadow-medium);
     --ds-dropdown-radius: var(--ds-box-radius);
-    --ds-dropdown-padding: calc(0.25 * var(--ds-spacing)) calc(0.5 * var(--ds-spacing));
+    --ds-dropdown-padding: var(--ds-space-d4) var(--ds-spacing-d2);
   }
 }
 @layer component {

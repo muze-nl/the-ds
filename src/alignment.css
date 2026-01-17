@@ -1,0 +1,15 @@
+@layer utility {
+    .ds-center {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .ds-center-middle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .ds-align-right {
+        float: right;
+    }
+}

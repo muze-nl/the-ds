@@ -4,7 +4,6 @@
         --ds-grid-space-column: var(--ds-grid-space);
         --ds-grid-space-row: var(--ds-grid-space);
         --ds-grid-columns: 1;
-        --ds-screen-size: tiny;
         --ds-grid-min-colwidth: 15rem;
         --ds-screen-size: small;
     }

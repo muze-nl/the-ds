@@ -2,9 +2,9 @@
 @layer theme {
   :root {
     --ds-navbar-shadow: var(--ds-shadow-small);
-    --ds-navbar-space: calc(0.5 * var(--ds-space));
+    --ds-navbar-space: var(--ds-space-d2);
     --ds-navbar-line-height: var(--ds-line-height);
-    --ds-navbar-side-space: calc(0.3 * var(--ds-space));
+    --ds-navbar-side-space: var(--ds-space-d4);
   }
 }
 @layer component {
@@ -55,10 +55,6 @@
   }
   .ds-navbar-nav .ds-button:last-child {
     margin-right: 0;
-  }
-  .asteroid-user-button {
-    position: absolute;
-    right: 1em;
   }
   /* sidebar */
   .ds-navbar-side,
