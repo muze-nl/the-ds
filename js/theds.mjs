@@ -22,6 +22,9 @@ import alignment  from '../src/alignment.css'  with { type: 'css' }
 import shadow     from '../src/shadow.css'     with { type: 'css' }
 
 export default {
+    json: {
+        imports
+    },
   	css: {
         layers,
         reset,
@@ -52,8 +55,8 @@ export default {
         },
         dsBuildSheet: async function() {
             let styles = ''
-            for (let entry of imports) {
-                styles += '@import '+entry+";\n"
+            for (let entry of this.json.imports) {
+                styles += entry+";\n"
             }
             for (let sheet in this.css) {
                 styles += "\n\n/* "+sheet+".css */\n"
@@ -64,7 +67,6 @@ export default {
                         .map(r => r.cssText || '').join('\n')
                 }
             }
-            console.log('styles', styles)
             return styles
         },
         dsLoadSheet: async function(sheet, rules) {
@@ -72,6 +74,7 @@ export default {
             if (!style) {
                 style = document.createElement('style')
                 style.id = sheet+'.css'
+                document.head.appendChild(style)
             }
             if (typeof rules == 'string') {
                 style.innerHTML = rules
@@ -79,7 +82,6 @@ export default {
                 style.innerHTML = Array.from(rules.cssRules)
                   .map(r => r.cssText || '').join('\n')
             }
-            document.head.appendChild(style)
         }
     },
     hooks: {

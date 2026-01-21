@@ -25,6 +25,9 @@
     "/README.md"
   ],
   "devDependencies": {
-    "bun": "^1.3.6"
+    "@eslint/js": "^9.39.2",
+    "bun": "^1.3.6",
+    "eslint": "^9.39.2",
+    "globals": "^17.0.0"
   }
 }
