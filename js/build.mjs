@@ -4,8 +4,12 @@ import fs from 'node:fs'
 // bun only knows the filename of the css files, it doesn't actually load them
 // so do that manually here
 for (let entry in theds.css) {
-	const contents = fs.readFileSync(theds.css[entry], 'utf-8')
-	theds.css[entry] = contents
+	try {
+		const contents = fs.readFileSync(theds.css[entry], 'utf-8')
+		theds.css[entry] = contents
+	} catch(e) {
+		
+	}
 }
 
 
