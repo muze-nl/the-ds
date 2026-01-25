@@ -49,8 +49,8 @@
     --ds-dark-color-background: var(--ds-grey-high);
     --ds-dark-link-color: var(--ds-primary-low);
     --ds-dark-link-color-visited: var(--ds-grey-medium);
-    --ds-dark-link-color-hover: var(--ds-primary);
-    --ds-dark-link-color-active: var(--ds-primary);
+    --ds-dark-link-color-hover: var(--ds-primary-high);
+    --ds-dark-link-color-active: var(--ds-primary-high);
   }
 }
 
@@ -153,7 +153,7 @@
   .ds-bg-primary, .ds-bg-primary-gradient, 
   .ds-bg-support, .ds-bg-support-gradient,
   .ds-bg-grey-high, .ds-bg-grey-medium, .ds-bg-grey-low,
-  .ds-black {
+  .ds-black, .ds-bg-default {
       --ds-color-contrast: rgb(from var(--ds-color-background) var(--channel) var(--channel) var(--channel));
       background: var(--ds-color-background);
       color: var(--ds-color-contrast);
@@ -164,7 +164,9 @@
   .ds-bg-support-gradient {
       background: var(--ds-support-gradient);
   }
-
+  .ds-color-default {
+    color: var(--ds-color-contrast);
+  }
   .ds-color-primary {
       color: var(--ds-primary);
   }

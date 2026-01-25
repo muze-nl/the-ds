@@ -1,12 +1,18 @@
 /* dropdown */
 @layer theme {
   :root {
-    --ds-dropdown-background: white;
+    --ds-dropdown-background: var(--ds-color-background);
+    --ds-dropdown-color: var(--ds-color-contrast);
     --ds-dropdown-width: 200px;
     --ds-dropdown-focus: var(--ds-grey-40);
     --ds-dropdown-shadow: var(--ds-shadow-medium);
     --ds-dropdown-radius: var(--ds-box-radius);
     --ds-dropdown-padding: var(--ds-space-d4) var(--ds-spacing-d2);
+  }
+  .ds-darkmode, .ds-darkmode-auto {
+    --ds-dropdown-background: var(--ds-color-background);
+    --ds-dropdown-color: var(--ds-color-contrast);
+    --ds-dropdown-shadow: var(--ds-glow-shadow);    
   }
 }
 @layer component {
@@ -29,6 +35,7 @@
   .ds-dropdown-nav {
     width: var(--ds-dropdown-width);
     background: var(--ds-dropdown-background);
+    color: var(--ds-dropdown-color);
     display: none;
     position: absolute;
     left: 0;
@@ -48,6 +55,13 @@
     transform: rotate(45deg);
     filter: drop-shadow(-1px -1px 2px #DDD);
     clip-path: polygon(-2px 0.6rem, -2px -2px, 0.6rem -2px);
+  }
+  .ds-dropdown-nav a:link,
+  .ds-dropdown-nav a:visited,
+  .ds-dropdown-nav a:hover,
+  .ds-dropdown-nav a:active {
+    color: var(--ds-dropdown-color);
+    text-decoration: none;
   }
   .ds-dropdown-state {
     display: none;  
