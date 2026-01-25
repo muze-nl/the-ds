@@ -22,10 +22,8 @@ import alignment  from '../src/alignment.css'  with { type: 'css' }
 import shadow     from '../src/shadow.css'     with { type: 'css' }
 
 export default {
-    json: {
-        imports
-    },
   	css: {
+        import: imports.join("\n"),
         layers,
         reset,
         fonts,
@@ -55,9 +53,6 @@ export default {
         },
         dsBuildSheet: async function() {
             let styles = ''
-            for (let entry of this.json.imports) {
-                styles += entry+";\n"
-            }
             for (let sheet in this.css) {
                 styles += "\n\n/* "+sheet+".css */\n"
                 if (typeof this.css[sheet] == 'string') {
