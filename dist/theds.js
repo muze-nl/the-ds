@@ -33,16 +33,17 @@
     default: () => theds_default
   });
   var theds = {
-    json: {
-      imports: ["@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap')"]
-    },
     css: {
+      import: `@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,100;0,300;0,700;1,100;1,300;1,700&family=Quicksand:wght@300..700&display=swap')`,
       layers: `@layer reset, setup, theme, base, component, page, utility;
 `,
       reset: `@layer reset {
     body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,td {
         margin:0; 
         padding:0; 
+    }
+    body {
+        display: flow-root;
     }
     img {
         max-width: 100%;
@@ -109,8 +110,8 @@
     --ds-dark-color-background: var(--ds-grey-high);
     --ds-dark-link-color: var(--ds-primary-low);
     --ds-dark-link-color-visited: var(--ds-grey-medium);
-    --ds-dark-link-color-hover: var(--ds-primary);
-    --ds-dark-link-color-active: var(--ds-primary);
+    --ds-dark-link-color-hover: var(--ds-primary-high);
+    --ds-dark-link-color-active: var(--ds-primary-high);
   }
 }
 
@@ -213,7 +214,7 @@
   .ds-bg-primary, .ds-bg-primary-gradient, 
   .ds-bg-support, .ds-bg-support-gradient,
   .ds-bg-grey-high, .ds-bg-grey-medium, .ds-bg-grey-low,
-  .ds-black {
+  .ds-black, .ds-bg-default {
       --ds-color-contrast: rgb(from var(--ds-color-background) var(--channel) var(--channel) var(--channel));
       background: var(--ds-color-background);
       color: var(--ds-color-contrast);
@@ -224,7 +225,9 @@
   .ds-bg-support-gradient {
       background: var(--ds-support-gradient);
   }
-
+  .ds-color-default {
+    color: var(--ds-color-contrast);
+  }
   .ds-color-primary {
       color: var(--ds-primary);
   }
@@ -815,17 +818,26 @@
       dialog: `/* dialog */
 @layer theme {
   :root {
-    --ds-dialog-radius: calc( 2 * var(--ds-box-radius));
+    --ds-dialog-background: var(--ds-color-background);
+    --ds-dialog-color: var(--ds-color-contrast);
     --ds-dialog-shadow: var(--ds-shadow-large);
-    --ds-dialog-size: calc( 50% - (1/2 * var(--ds-spacing)));
-    --ds-dialog-narrow: calc( 33% - (1/2 * var(--ds-spacing)));
+    --ds-dialog-radius: calc( 2 * var(--ds-box-radius));
+    --ds-dialog-size: calc( 50% - (1/2 * var(--ds-space)));
+    --ds-dialog-narrow: calc( 33% - (1/2 * var(--ds-space)));
     --ds-dialog-min-width: 20em;
     --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
+  }
+  .ds-darkmode, .ds-darkmode-auto {
+    --ds-dialog-background: var(--ds-color-background);
+    --ds-dialog-color: var(--ds-color-contrast);
+    --ds-dialog-shadow: var(--ds-glow-shadow);
   }
 }
 @layer component {
   .ds-dialog {
     border: 0;
+    color: var(--ds-dialog-color);
+    background: var(--ds-dialog-background);
     width: var(--ds-dialog-size);
     min-width: var(--ds-dialog-min-width);
     box-shadow: var(--ds-dialog-shadow);
@@ -873,12 +885,18 @@
       dropdown: `/* dropdown */
 @layer theme {
   :root {
-    --ds-dropdown-background: white;
+    --ds-dropdown-background: var(--ds-color-background);
+    --ds-dropdown-color: var(--ds-color-contrast);
     --ds-dropdown-width: 200px;
     --ds-dropdown-focus: var(--ds-grey-40);
     --ds-dropdown-shadow: var(--ds-shadow-medium);
     --ds-dropdown-radius: var(--ds-box-radius);
     --ds-dropdown-padding: var(--ds-space-d4) var(--ds-spacing-d2);
+  }
+  .ds-darkmode, .ds-darkmode-auto {
+    --ds-dropdown-background: var(--ds-color-background);
+    --ds-dropdown-color: var(--ds-color-contrast);
+    --ds-dropdown-shadow: var(--ds-glow-shadow);    
   }
 }
 @layer component {
@@ -901,6 +919,7 @@
   .ds-dropdown-nav {
     width: var(--ds-dropdown-width);
     background: var(--ds-dropdown-background);
+    color: var(--ds-dropdown-color);
     display: none;
     position: absolute;
     left: 0;
@@ -920,6 +939,13 @@
     transform: rotate(45deg);
     filter: drop-shadow(-1px -1px 2px #DDD);
     clip-path: polygon(-2px 0.6rem, -2px -2px, 0.6rem -2px);
+  }
+  .ds-dropdown-nav a:link,
+  .ds-dropdown-nav a:visited,
+  .ds-dropdown-nav a:hover,
+  .ds-dropdown-nav a:active {
+    color: var(--ds-dropdown-color);
+    text-decoration: none;
   }
   .ds-dropdown-state {
     display: none;  
@@ -1477,9 +1503,6 @@
       },
       dsBuildSheet: async function() {
         let styles = "";
-        for (let entry of this.json.imports)
-          styles += entry + `;
-`;
         for (let sheet in this.css) {
           styles += `
 
