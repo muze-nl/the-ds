@@ -46,7 +46,7 @@ export default {
         alert,
         toast,
         alignment,
-        shadow
+        shadow,
         sticky,
         panels
   	},
