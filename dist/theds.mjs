@@ -857,7 +857,7 @@ const theds = {
     --ds-dropdown-focus: var(--ds-grey-40);
     --ds-dropdown-shadow: var(--ds-shadow-medium);
     --ds-dropdown-radius: var(--ds-box-radius);
-    --ds-dropdown-padding: var(--ds-space-d4) var(--ds-spacing-d2);
+    --ds-dropdown-padding: var(--ds-space-d4) var(--ds-space-d2);
   }
   .ds-darkmode, .ds-darkmode-auto {
     --ds-dropdown-background: var(--ds-color-background);
@@ -867,11 +867,7 @@ const theds = {
 }
 @layer component {
   .ds-dropdown {
-    margin: 0;
-    padding: 0;
-    outline: none;
-    box-shadow: none;
-    display: inline-block; 
+    anchor-name: var(--ds-dropdown-anchor);
     position: relative;
   }
   .ds-dropdown-icon {
@@ -882,16 +878,23 @@ const theds = {
   .ds-dropdown-icon:hover {
     background: var(--ds-dropdown-focus);
   }
+  .ds-dropdown-state {
+    display: none;
+  }
   .ds-dropdown-nav {
+    position-anchor: var(--ds-dropdown-anchor);
+    position-area: bottom span-left;
     width: var(--ds-dropdown-width);
     background: var(--ds-dropdown-background);
     color: var(--ds-dropdown-color);
-    display: none;
-    position: absolute;
-    left: 0;
     box-shadow: var(--ds-dropdown-shadow);
     border-radius: var(--ds-dropdown-radius);
-    z-index: 101;
+    border: none;
+    margin: 0;
+    inset: unset;
+    overflow: visible;
+    --ds-dropdown-marker-position: -0.2rem 0.5rem auto auto;
+    --ds-dropdown-marker-transform: rotate(45deg);
   }
   .ds-dropdown-nav::before {
     content: "";
@@ -900,24 +903,48 @@ const theds = {
     height: 0.5rem;
     background: var(--ds-dropdown-background);
     position: absolute;
-    top: -0.2rem;
-    left: 0.75rem;
-    transform: rotate(45deg);
+    inset: var(--ds-dropdown-marker-position);
+    transform: var(--ds-dropdown-marker-transform);
     filter: drop-shadow(-1px -1px 2px #DDD);
     clip-path: polygon(-2px 0.6rem, -2px -2px, 0.6rem -2px);
   }
+  .ds-dropdown-up {
+    position-area: top;
+  }
+  .ds-dropdown-up::before {
+    transform: rotate(-135deg);
+    top: auto;
+    bottom: -0.2rem;
+    filter: drop-shadow(1px 1px 2px #000);
+  }
+  .ds-dropdown-left {
+    position-try-fallbacks: --ds-dropdown-left, --ds-dropdown-center, --ds-dropdown-right;
+  }
+  .ds-dropdown-right {
+    position-try-fallbacks: --ds-dropdown-right, --ds-dropdown-center, --ds-dropdown-left;
+  }
+  .ds-dropdown-center {
+    position-try-fallbacks: --ds-dropdown-center, --ds-dropdown-left, --ds-dropdown-right;
+  }
+  @position-try --ds-dropdown-left {
+    --ds-dropdown-marker-position: -0.2rem auto auto 0.75rem;
+    left: anchor(left);
+  }
+  @position-try --ds-dropdown-right {
+    right: anchor(right);
+    --ds-dropdown-marker-position: -0.2rem 0.5rem auto auto;
+  }
+  @position-try --ds-dropdown-center {
+    justify-self: anchor-center;
+    --ds-dropdown-marker-position: -0.2rem auto auto calc(50% - 0.25rem);
+  }
+  
   .ds-dropdown-nav a:link,
   .ds-dropdown-nav a:visited,
   .ds-dropdown-nav a:hover,
   .ds-dropdown-nav a:active {
     color: var(--ds-dropdown-color);
     text-decoration: none;
-  }
-  .ds-dropdown-state {
-    display: none;  
-  }
-  .ds-dropdown-state:checked ~ .ds-dropdown-nav {
-    display: block;
   }
   .ds-dropdown-list {
     list-style: none;
@@ -929,32 +956,43 @@ const theds = {
     margin: 0;
     padding: 0;
   }
-  .ds-dropdown-right {
-    left: auto;
-    right: 0;
-  }
 
-  .ds-dropdown-right::before {
-    left: auto;
-    right: 0.5rem;
-    top: -0.15rem;
-  }
+  .ds-dropdown-nav:not([popover]) {
+    display: none;
+    z-index: 101;
+    position:absolute;
 
-  .ds-dropdown-up {
-    bottom: 1.5em
+    &:where(.ds-dropdown-state:checked ~ .ds-dropdown-nav) {
+      display: block;
+    }
   }
-  .ds-dropdown-nav.ds-dropdown-up::before {
-    transform: rotate(-135deg);
-    top: auto;
-    bottom: -0.2rem;
-    filter: drop-shadow(1px 1px 2px #000);
-  }
+  @supports (not (position-try-fallbacks)) {
+    .ds-dropdown-right {
+      left: auto;
+      right: 0;
+    }
+    .ds-dropdown-right::before {
+      left: auto;
+      right: 0.5rem;
+      top: -0.15rem;
+    }
 
-  .ds-dropdown-center {
-    margin-left: calc(-0.5 * var(--ds-dropdown-width) + 50%);
-  }
-  .ds-dropdown-nav.ds-dropdown-center::before {
-    left: calc(50% - 0.25rem);
+    .ds-dropdown-up {
+      bottom: 1.5em
+    }
+    .ds-dropdown-up::before {
+      transform: rotate(-135deg);
+      top: auto;
+      bottom: -0.2rem;
+      filter: drop-shadow(1px 1px 2px #000);
+    }
+
+    .ds-dropdown-center {
+      margin-left: calc(-0.5 * var(--ds-dropdown-width) + 50%);
+    }
+    .ds-dropdown-center::before {
+      left: calc(50% - 0.25rem);
+    }
   }
 }`,
         'tabs': `/* tabs */
@@ -1461,6 +1499,77 @@ const theds = {
     .ds-shadow-large {
         box-shadow: var(--ds-shadow-large);
     }
+}`,
+        'sticky': `@layer theme {
+	:root {
+	  --ds-top: 0;
+	  --ds-left: 0;
+	  --ds-bottom: 0;
+	  --ds-right: 0;
+	}
+}
+@layer component {
+	.ds-sticky-top {
+	  position: sticky;
+	  top: var(--ds-top);
+	}
+	.ds-sticky-bottom {
+	  position: sticky;
+	  bottom: var(--ds-bottom);
+	}
+	.ds-sticky-left {  
+	  position: sticky;
+	  left: var(--ds-left);
+	  display: inline-block;
+	}
+	.ds-sticky-right {  
+	  position: sticky;
+	  right: var(--ds-right);
+	  display: inline-block;
+	}
+}`,
+        'panels': `@layer theme {
+	:root {
+
+	}
+}
+@layer component {
+	.ds-panels-heading {
+	  width: 100%;
+	  overflow: hidden;
+	}
+	.ds-panels-panes {
+	  display: flex;
+	  flex-wrap: nowrap;
+	}
+	.ds-panels-pane {
+		scroll-snap-align: start;
+		width: 100%;
+   	flex-shrink: 0;  
+	}
+
+	.ds-panels-list-details {
+	  height: 100%;
+	  width: 100%;
+		overflow: auto;
+		scroll-snap-type: x mandatory;
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+	@media screen and (min-width: 720px) {
+		.ds-panels-list-details {
+			scroll-snap-type: none;
+		}
+		.ds-panels-list-details .ds-panels-panes {
+			display: grid;
+			grid-template-areas: "list details";
+			grid-template-columsn: 10em 1fr;
+		}
+		.ds-panels-list-details .ds-panels-pane {
+			width: auto;
+		}
+	}
 }`,
     },
     actions: {
