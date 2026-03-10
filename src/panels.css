@@ -1,0 +1,43 @@
+@layer theme {
+	:root {
+
+	}
+}
+@layer component {
+	.ds-panels-heading {
+	  width: 100%;
+	  overflow: hidden;
+	}
+	.ds-panels-panes {
+	  display: flex;
+	  flex-wrap: nowrap;
+	}
+	.ds-panels-pane {
+		scroll-snap-align: start;
+		width: 100%;
+   	flex-shrink: 0;  
+	}
+
+	.ds-panels-list-details {
+	  height: 100%;
+	  width: 100%;
+		overflow: auto;
+		scroll-snap-type: x mandatory;
+		@media (prefers-reduced-motion: no-preference) {
+			scroll-behavior: smooth;
+		}
+	}
+	@media screen and (min-width: 720px) {
+		.ds-panels-list-details {
+			scroll-snap-type: none;
+		}
+		.ds-panels-list-details .ds-panels-panes {
+			display: grid;
+			grid-template-areas: "list details";
+			grid-template-columsn: 10em 1fr;
+		}
+		.ds-panels-list-details .ds-panels-pane {
+			width: auto;
+		}
+	}
+}

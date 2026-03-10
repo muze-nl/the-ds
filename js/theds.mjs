@@ -20,6 +20,8 @@ import alert      from '../src/alert.css'      with { type: 'css' }
 import toast      from '../src/toast.css'      with { type: 'css' }
 import alignment  from '../src/alignment.css'  with { type: 'css' }
 import shadow     from '../src/shadow.css'     with { type: 'css' }
+import sticky     from '../src/sticky.css'     with { type: 'css' }
+import panels     from '../src/panels.css'     with { type: 'css' }
 
 export default {
   	css: {
@@ -45,6 +47,8 @@ export default {
         toast,
         alignment,
         shadow
+        sticky,
+        panels
   	},
     actions: {
         dsInit: async function() {

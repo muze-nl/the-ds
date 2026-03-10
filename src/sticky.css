@@ -1,0 +1,28 @@
+@layer theme {
+	:root {
+	  --ds-top: 0;
+	  --ds-left: 0;
+	  --ds-bottom: 0;
+	  --ds-right: 0;
+	}
+}
+@layer component {
+	.ds-sticky-top {
+	  position: sticky;
+	  top: var(--ds-top);
+	}
+	.ds-sticky-bottom {
+	  position: sticky;
+	  bottom: var(--ds-bottom);
+	}
+	.ds-sticky-left {  
+	  position: sticky;
+	  left: var(--ds-left);
+	  display: inline-block;
+	}
+	.ds-sticky-right {  
+	  position: sticky;
+	  right: var(--ds-right);
+	  display: inline-block;
+	}
+}
