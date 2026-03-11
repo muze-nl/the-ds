@@ -770,20 +770,42 @@
 }
 @layer base {
   :root {
-    --ds-glow-shadow: 
+    --ds-glow-large: 
         0 0 8px 2px var(--ds-glow-1),
         0 0 15px 15px var(--ds-glow-2),
         0 0 25px 25px var(--ds-glow-3);
+    --ds-glow-medium: 
+        0 0 4px 2px var(--ds-glow-1),
+        0 0 7px 7px var(--ds-glow-2),
+        0 0 12px 12px var(--ds-glow-3);
+    --ds-glow-small: 
+        0 0 2px 1px var(--ds-glow-1),
+        0 0 4px 4px var(--ds-glow-2),
+        0 0 6px 6px var(--ds-glow-3);
   }
   .ds-glow, .ds-glow-hover:hover, .ds-glow-focus:focus {
-    box-shadow: var(--ds-glow-shadow);
+    box-shadow: var(--ds-glow-medium);
+  }
+  .ds-glow-small, .ds-glow-small-hover:hover, .ds-glow-small-focus:focus {
+    box-shadow: var(--ds-glow-small);
+  }
+  .ds-glow-large, .ds-glow-large-hover:hover, .ds-glow-large-focus:focus {
+    box-shadow: var(--ds-glow-large);
   }
   .ds-glow-support {
     --ds-glow-2: var(--ds-glow-support);
-    --ds-glow-shadow: 
+    --ds-glow-large: 
         0 0 8px 2px var(--ds-glow-1),
         0 0 15px 15px var(--ds-glow-2),
         0 0 25px 25px var(--ds-glow-3);
+    --ds-glow-medium: 
+        0 0 4px 2px var(--ds-glow-1),
+        0 0 7px 7px var(--ds-glow-2),
+        0 0 12px 12px var(--ds-glow-3);
+    --ds-glow-small: 
+        0 0 2px 1px var(--ds-glow-1),
+        0 0 4px 4px var(--ds-glow-2),
+        0 0 6px 6px var(--ds-glow-3);
   }
 }`,
       box: `/* box */
@@ -830,7 +852,7 @@
   .ds-darkmode, .ds-darkmode-auto {
     --ds-dialog-background: var(--ds-color-background);
     --ds-dialog-color: var(--ds-color-contrast);
-    --ds-dialog-shadow: var(--ds-glow-shadow);
+    --ds-dialog-shadow: var(--ds-glow-large);
   }
 }
 @layer component {
@@ -896,7 +918,7 @@
   .ds-darkmode, .ds-darkmode-auto {
     --ds-dropdown-background: var(--ds-color-background);
     --ds-dropdown-color: var(--ds-color-contrast);
-    --ds-dropdown-shadow: var(--ds-glow-shadow);    
+    --ds-dropdown-shadow: var(--ds-glow-small);    
   }
 }
 @layer component {
@@ -1546,69 +1568,91 @@
 	.ds-sticky-top {
 	  position: sticky;
 	  top: var(--ds-top);
+	  z-index: 2;
 	}
 	.ds-sticky-bottom {
 	  position: sticky;
 	  bottom: var(--ds-bottom);
+	  z-index: 2;
 	}
 	.ds-sticky-left {  
 	  position: sticky;
 	  left: var(--ds-left);
 	  display: inline-block;
+	  z-index: 2;
 	}
 	.ds-sticky-right {  
 	  position: sticky;
 	  right: var(--ds-right);
 	  display: inline-block;
+	  z-index: 2;
 	}
 }`,
       panels: `@layer theme {
-	:root {
-
-	}
+    :root {
+    	--ds-panels-list-width: 20em;
+    	--ds-panels-padding: var(--ds-space-d4);
+    }
 }
 @layer component {
-	.ds-panels-heading {
-	  width: 100%;
-	  overflow: hidden;
-	}
-	.ds-panels-panes {
-	  display: flex;
-	  flex-wrap: nowrap;
-	}
-	.ds-panels-pane {
-		scroll-snap-align: start;
+	.ds-panels-container {
+		height: 100%;
 		width: 100%;
-   	flex-shrink: 0;  
+		overflow: hidden;
+		overflow-x: scroll;
 	}
-
-	.ds-panels-list-details {
-	  height: 100%;
-	  width: 100%;
-		overflow: auto;
-		scroll-snap-type: x mandatory;
-		@media (prefers-reduced-motion: no-preference) {
-			scroll-behavior: smooth;
-		}
-	}
-	@media screen and (min-width: 720px) {
-		.ds-panels-list-details {
-			scroll-snap-type: none;
-		}
-		.ds-panels-list-details .ds-panels-panes {
-			display: grid;
-			grid-template-areas: "list details";
-			grid-template-columsn: 10em 1fr;
-		}
-		.ds-panels-list-details .ds-panels-pane {
-			width: auto;
-		}
-	}
+    .ds-panels-panes {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    .ds-panels-pane {
+        scroll-snap-align: start;
+        width: 100%;
+        flex-shrink: 0;
+        padding: var(--ds-panels-padding);  
+    }
+    .ds-panels-list-details {
+        height: 100%;
+        width: 100%;
+        overflow: auto;
+        scroll-snap-type: x mandatory;
+        @media (prefers-reduced-motion: no-preference) {
+            scroll-behavior: smooth;
+        }
+    }
+    .ds-panels-heading {
+        width: 100%;
+        overflow: hidden;
+        z-index: 10;
+    }
+    .ds-panels-heading::after {
+        background: var(--ds-color-background);
+        width: var(--ds-panels-list-width);
+        height: calc((var(--ds-line-height) * 1.5) + var(--ds-space-d4));
+        display: block;
+        content: "";
+        position: absolute;
+        top: calc(-1 * var(--ds-space-d2));
+        z-index: -1;
+    }
+    @media screen and (min-width: 720px) {
+        .ds-panels-list-details {
+            scroll-snap-type: none;
+        }
+        .ds-panels-list-details .ds-panels-panes {
+            display: grid;
+            grid-template-areas: "list details";
+            grid-template-columns: var(--ds-panels-list-width) 1fr;
+        }
+        .ds-panels-list-details .ds-panels-pane {
+            width: auto;
+        }
+    }
 }`
     },
     actions: {
       dsInit: async function() {
-        this.actions.dsLoadSheet.call(this, "theds", await this.actions.dsBuildSheet.call(this));
+        this.actions.dsInitDropdown();
       },
       dsBuildSheet: async function() {
         let styles = "";
@@ -1632,11 +1676,27 @@
           style.id = sheet + ".css";
           document.head.appendChild(style);
         }
-        if (typeof rules == "string")
+        if (typeof rules == "string") {
+          console.log("loadsheet string", rules);
           style.innerHTML = rules;
-        else
+        } else {
+          console.log("loadsheet rules", rules);
           style.innerHTML = Array.from(rules.cssRules).map((r) => r.cssText || "").join(`
 `);
+        }
+      },
+      dsInitDropdown: async function() {
+        simply.activate.addListener("ds-dropdown", function() {
+          const nav = this.querySelector(".ds-dropdown-nav"), input = this.querySelector(".ds-dropdown-state"), r = new Uint32Array(8);
+          crypto.getRandomValues(r);
+          const id = Array.from(r).map((c) => String.fromCharCode(65 + c % 26)).join("");
+          this.style = "--ds-dropdown-anchor: --" + id;
+          if (document.body.showPopover) {
+            nav.id = id;
+            nav.setAttribute("popover", "");
+            input.outerHTML = '<button class="ds-dropdown-state" popovertarget="' + id + '"></button>';
+          }
+        });
       }
     },
     hooks: {
