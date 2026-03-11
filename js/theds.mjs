@@ -52,8 +52,9 @@ export default {
   	},
     actions: {
         dsInit: async function() {
-            this.actions.dsLoadSheet.call(this, 'theds', 
-                await this.actions.dsBuildSheet.call(this))
+            // this.actions.dsLoadSheet.call(this, 'theds', 
+            //     await this.actions.dsBuildSheet.call(this))
+            this.actions.dsInitDropdown()
         },
         dsBuildSheet: async function() {
             let styles = ''
@@ -76,11 +77,30 @@ export default {
                 document.head.appendChild(style)
             }
             if (typeof rules == 'string') {
+                console.log('loadsheet string',rules)
                 style.innerHTML = rules
             } else {
+                console.log('loadsheet rules',rules)
                 style.innerHTML = Array.from(rules.cssRules)
                   .map(r => r.cssText || '').join('\n')
             }
+        },
+        dsInitDropdown: async function() {
+            simply.activate.addListener('ds-dropdown', function() {
+                const nav = this.querySelector('.ds-dropdown-nav')
+                const input = this.querySelector('.ds-dropdown-state')
+                const r = new Uint32Array(8)
+                crypto.getRandomValues(r)
+                const id = Array.from(r)
+                    .map(c => String.fromCharCode(65 + c % 26))
+                    .join('')
+                this.style = '--ds-dropdown-anchor: --'+id
+                if (document.body.showPopover) {
+                    nav.id = id
+                    nav.setAttribute('popover','')
+                    input.outerHTML = '<button class="ds-dropdown-state" popovertarget="'+id+'"></button>'
+                }
+            })
         }
     },
     hooks: {
