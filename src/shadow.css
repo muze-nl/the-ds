@@ -19,12 +19,11 @@
             0 8px 16px var(--ds-shadow-middle)
         ;
         --ds-shadow-large: 
-            0 2px 1px var(--ds-shadow-light),
-            0 4px 2px var(--ds-shadow-light),
-            0 8px 4px var(--ds-shadow-light),
-            0 16px 8px var(--ds-shadow-light),
-            0 32px 16px var(--ds-shadow-light) 
-        ;
+            0 -2px 2px var(--ds-shadow-light), 
+            0 4px 2px var(--ds-shadow-light), 
+            0 8px 4px var(--ds-shadow-light), 
+            0 16px 8px var(--ds-shadow-light), 
+            0 32px 16px var(--ds-shadow-light);
     }
 }
 @layer utility {
