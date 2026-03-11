@@ -12,7 +12,7 @@
   .ds-darkmode, .ds-darkmode-auto {
     --ds-dropdown-background: var(--ds-color-background);
     --ds-dropdown-color: var(--ds-color-contrast);
-    --ds-dropdown-shadow: var(--ds-glow-shadow);    
+    --ds-dropdown-shadow: var(--ds-glow-small);    
   }
 }
 @layer component {

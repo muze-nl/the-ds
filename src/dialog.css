@@ -13,7 +13,7 @@
   .ds-darkmode, .ds-darkmode-auto {
     --ds-dialog-background: var(--ds-color-background);
     --ds-dialog-color: var(--ds-color-contrast);
-    --ds-dialog-shadow: var(--ds-glow-shadow);
+    --ds-dialog-shadow: var(--ds-glow-large);
   }
 }
 @layer component {

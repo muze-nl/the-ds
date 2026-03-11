@@ -8,19 +8,41 @@
 }
 @layer base {
   :root {
-    --ds-glow-shadow: 
+    --ds-glow-large: 
         0 0 8px 2px var(--ds-glow-1),
         0 0 15px 15px var(--ds-glow-2),
         0 0 25px 25px var(--ds-glow-3);
+    --ds-glow-medium: 
+        0 0 4px 2px var(--ds-glow-1),
+        0 0 7px 7px var(--ds-glow-2),
+        0 0 12px 12px var(--ds-glow-3);
+    --ds-glow-small: 
+        0 0 2px 1px var(--ds-glow-1),
+        0 0 4px 4px var(--ds-glow-2),
+        0 0 6px 6px var(--ds-glow-3);
   }
   .ds-glow, .ds-glow-hover:hover, .ds-glow-focus:focus {
-    box-shadow: var(--ds-glow-shadow);
+    box-shadow: var(--ds-glow-medium);
+  }
+  .ds-glow-small, .ds-glow-small-hover:hover, .ds-glow-small-focus:focus {
+    box-shadow: var(--ds-glow-small);
+  }
+  .ds-glow-large, .ds-glow-large-hover:hover, .ds-glow-large-focus:focus {
+    box-shadow: var(--ds-glow-large);
   }
   .ds-glow-support {
     --ds-glow-2: var(--ds-glow-support);
-    --ds-glow-shadow: 
+    --ds-glow-large: 
         0 0 8px 2px var(--ds-glow-1),
         0 0 15px 15px var(--ds-glow-2),
         0 0 25px 25px var(--ds-glow-3);
+    --ds-glow-medium: 
+        0 0 4px 2px var(--ds-glow-1),
+        0 0 7px 7px var(--ds-glow-2),
+        0 0 12px 12px var(--ds-glow-3);
+    --ds-glow-small: 
+        0 0 2px 1px var(--ds-glow-1),
+        0 0 4px 4px var(--ds-glow-2),
+        0 0 6px 6px var(--ds-glow-3);
   }
 }
