@@ -10,19 +10,23 @@
 	.ds-sticky-top {
 	  position: sticky;
 	  top: var(--ds-top);
+	  z-index: 2;
 	}
 	.ds-sticky-bottom {
 	  position: sticky;
 	  bottom: var(--ds-bottom);
+	  z-index: 2;
 	}
 	.ds-sticky-left {  
 	  position: sticky;
 	  left: var(--ds-left);
 	  display: inline-block;
+	  z-index: 2;
 	}
 	.ds-sticky-right {  
 	  position: sticky;
 	  right: var(--ds-right);
 	  display: inline-block;
+	  z-index: 2;
 	}
 }
