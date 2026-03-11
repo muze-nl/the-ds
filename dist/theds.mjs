@@ -359,7 +359,7 @@ const theds = {
         'forms': `/* forms */
 @layer theme {
   :root {
-    --ds-input-border: var(--ds-grey-low);
+    --ds-input-border: var(--ds-grey-medium);
     --ds-input-space: var(--ds-space);
     --ds-input-font: var(--ds-font-family);
     --ds-input-radio-space: 0.2em;
@@ -729,9 +729,9 @@ const theds = {
         'glow': `@layer theme {
   :root {
     --ds-glow-1: rgb(from var(--ds-white) r g b / 0.2);
-    --ds-glow-2: rgb( from var(--ds-primary) r g b / 0.5);
-    --ds-glow-3: rgb(from var(--ds-grey-medium) r g b / 0.2);
-    --ds-glow-support: rgb( from var(--ds-support) r g b / 0.5);
+    --ds-glow-2: rgb( from var(--ds-primary) r g b / 0.3);
+    --ds-glow-3: rgb(from var(--ds-grey-low) r g b / 0.1);
+    --ds-glow-support: rgb( from var(--ds-support) r g b / 0.3);
   }
 }
 @layer base {
@@ -1500,12 +1500,11 @@ const theds = {
             0 8px 16px var(--ds-shadow-middle)
         ;
         --ds-shadow-large: 
-            0 2px 1px var(--ds-shadow-light),
-            0 4px 2px var(--ds-shadow-light),
-            0 8px 4px var(--ds-shadow-light),
-            0 16px 8px var(--ds-shadow-light),
-            0 32px 16px var(--ds-shadow-light) 
-        ;
+            0 -2px 2px var(--ds-shadow-light), 
+            0 4px 2px var(--ds-shadow-light), 
+            0 8px 4px var(--ds-shadow-light), 
+            0 16px 8px var(--ds-shadow-light), 
+            0 32px 16px var(--ds-shadow-light);
     }
 }
 @layer utility {
