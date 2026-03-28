@@ -31,6 +31,9 @@
   .ds-dropdown-state {
     display: none;
   }
+  .ds-dropdown-button {
+    margin: 0;
+  }
   .ds-dropdown-nav {
     position-anchor: var(--ds-dropdown-anchor);
     position-area: bottom span-left;
