@@ -97,75 +97,68 @@
   }
 
   :root {
-    --ds-primary-90: oklch( from var(--ds-primary) calc(l + 0.3) c h);
-    --ds-primary-10: oklch( from var(--ds-primary) calc(l - 0.3) c h);
+    --ds-primary-10: oklch( from var(--ds-primary) calc(l + 0.3) c h);
+    --ds-primary-90: oklch( from var(--ds-primary) calc(l - 0.3) c h);
     --ds-primary-high: var(--ds-primary-90);
     --ds-primary-low: var(--ds-primary-10);
     --ds-primary-contrast: white;
 
-    --ds-support-90: oklch( from var(--ds-support) calc(l + 0.3) c h);
-    --ds-support-10: oklch( from var(--ds-support) calc(l - 0.3) c h);
+    --ds-support-10: oklch( from var(--ds-support) calc(l + 0.3) c h);
+    --ds-support-90: oklch( from var(--ds-support) calc(l - 0.3) c h);
     --ds-support-high: var(--ds-support-90);
     --ds-support-low: var(--ds-support-10);
     --ds-support-contrast: white;
 
+    --ds-link-color: var(--ds-primary-high);
+    --ds-link-color-visited: var(--ds-primary);
+    --ds-link-color-hover: var(--ds-support);
+    --ds-link-color-active: var(--ds-support);
+
     --ds-grey-high: var(--ds-grey-90);
     --ds-grey-medium: var(--ds-grey-60);
-    --ds-grey-low: var(--ds-grey-0);
+    --ds-grey-low: var(--ds-grey-10);
 
     --ds-light-color: var(--ds-black);
     --ds-light-color-background: var(--ds-white);
-    --ds-light-link-color: var(--ds-primary-high);
-    --ds-light-link-color-visited: var(--ds-grey-medium);
-    --ds-light-link-color-hover: var(--ds-primary-low);
-    --ds-light-link-color-active: var(--ds-primary-low);
 
     --ds-dark-color: var(--ds-white);
     --ds-dark-color-background: var(--ds-grey-high);
-    --ds-dark-link-color: var(--ds-primary-low);
-    --ds-dark-link-color-visited: var(--ds-grey-medium);
-    --ds-dark-link-color-hover: var(--ds-primary-high);
-    --ds-dark-link-color-active: var(--ds-primary-high);
   }
   
   :root, .ds-lightmode {
     --ds-color: var(--ds-light-color);
     --ds-color-background: var(--ds-light-color-background);
-    --ds-link-color: var(--ds-light-link-color);
-    --ds-link-color-visited: var(--ds-light-link-color-visited);
-    --ds-link-color-hover: var(--ds-light-link-color-hover);
-    --ds-link-color-active: var(--ds-light-link-color-active);	
   }
-  .ds-darkmode {
+  .ds-darkmode, .ds-dark-background {
     --ds-color: var(--ds-dark-color);
     --ds-color-background: var(--ds-dark-color-background);
-    --ds-link-color: var(--ds-dark-link-color);
-    --ds-link-color-visited: var(--ds-dark-link-color-visited);
-    --ds-link-color-hover: var(--ds-dark-link-color-hover);
-    --ds-link-color-active: var(--ds-dark-link-color-active);
-    --ds-grey-high: var(--ds-grey-0);
+    --ds-grey-high: var(--ds-grey-10);
     --ds-grey-medium: var(--ds-grey-60);
-    --ds-grey-low: var(--ds-grey-80);
+    --ds-grey-low: var(--ds-grey-90);
     --ds-support-high: var(--ds-support-10);
     --ds-support-low: var(--ds-support-90);
     --ds-primary-high: var(--ds-primary-10);
     --ds-primary-low: var(--ds-primary-90);
+    --ds-link-color: var(--ds-primary-high);
+    --ds-link-color-visited: var(--ds-grey-high);
+    --ds-link-color-hover: var(--ds-support);
+    --ds-link-color-active: var(--ds-support);
   }
   @media (prefers-color-scheme: dark) {
     .ds-darkmode-auto {
       --ds-color: var(--ds-dark-color);
       --ds-color-background: var(--ds-dark-color-background);
-      --ds-link-color: var(--ds-dark-link-color);
-      --ds-link-color-visited: var(--ds-dark-link-color-visited);
-      --ds-link-color-hover: var(--ds-dark-link-color-hover);
-      --ds-link-color-active: var(--ds-dark-link-color-active);
-      --ds-grey-high: var(--ds-grey-0);
+      --ds-grey-high: var(--ds-grey-10);
       --ds-grey-medium: var(--ds-grey-60);
-      --ds-grey-low: var(--ds-grey-80);
+      --ds-grey-low: var(--ds-grey-90);
       --ds-support-high: var(--ds-support-10);
       --ds-support-low: var(--ds-support-90);
       --ds-primary-high: var(--ds-primary-10);
       --ds-primary-low: var(--ds-primary-90);
+      --ds-link-color: var(--ds-primary-high);
+      --ds-link-color-visited: var(--ds-grey-high);
+      --ds-link-color-hover: var(--ds-support);
+      --ds-link-color-active: var(--ds-support);
     }
   }
   :root, .ds-darkmode, .ds-lightmode, .ds-darkmode-auto {
@@ -409,6 +402,10 @@
   }
   .ds-form-line {
     display: flex;
+  }
+  .ds-form-help {
+    margin-top: calc(-1 * var(--ds-input-margin));
+    height: var(--ds-input-margin);
   }
   label {
     display: block;
