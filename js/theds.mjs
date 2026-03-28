@@ -22,6 +22,7 @@ import alignment  from '../src/alignment.css'  with { type: 'css' }
 import shadow     from '../src/shadow.css'     with { type: 'css' }
 import sticky     from '../src/sticky.css'     with { type: 'css' }
 import panels     from '../src/panels.css'     with { type: 'css' }
+import background from '../src/background.css' with { type: 'css' }
 
 export default {
   	css: {
@@ -48,7 +49,8 @@ export default {
         alignment,
         shadow,
         sticky,
-        panels
+        panels,
+        background
   	},
     actions: {
         dsInit: async function() {
