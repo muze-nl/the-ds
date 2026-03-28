@@ -1497,9 +1497,11 @@ const theds = {
         display: flex;
         align-items: center;
         justify-content: center;
+        margin: auto;
     }
     .ds-align-right {
         float: right;
+        margin-left: auto;
     }
 }`,
         'shadow': `@layer theme {
