@@ -961,6 +961,9 @@
   .ds-dropdown-state {
     display: none;
   }
+  .ds-dropdown-button {
+    margin: 0;
+  }
   .ds-dropdown-nav {
     position-anchor: var(--ds-dropdown-anchor);
     position-area: bottom span-left;
@@ -1649,11 +1652,12 @@
         width: 100%;
         overflow: hidden;
         z-index: 10;
+        padding: var(--ds-panels-padding);
     }
     .ds-panels-heading::after {
         background: var(--ds-color-background);
         width: var(--ds-panels-list-width);
-        height: calc((var(--ds-line-height) * 1.5) + var(--ds-space-d4));
+        height: calc((var(--ds-line-height) * 1.5) + var(--ds-space-d2));
         display: block;
         content: "";
         position: absolute;
@@ -1731,14 +1735,18 @@
       },
       dsInitDropdown: async function() {
         simply.activate.addListener("ds-dropdown", function() {
-          const nav = this.querySelector(".ds-dropdown-nav"), input = this.querySelector(".ds-dropdown-state"), r = new Uint32Array(8);
+          const nav = this.querySelector(".ds-dropdown-nav"), state = this.querySelector(".ds-dropdown-state"), r = new Uint32Array(8);
           crypto.getRandomValues(r);
           const id = Array.from(r).map((c) => String.fromCharCode(65 + c % 26)).join("");
           this.style = "--ds-dropdown-anchor: --" + id;
           if (document.body.showPopover) {
             nav.id = id;
             nav.setAttribute("popover", "");
-            input.outerHTML = '<button class="ds-dropdown-state" popovertarget="' + id + '"></button>';
+            const button = this.querySelector(".ds-dropdown-button");
+            if (!button)
+              state.outerHTML = '<button class="ds-dropdown-state" popovertarget="' + id + '"></button>';
+            else
+              button.setAttribute("popovertarget", id);
           }
         });
       }
