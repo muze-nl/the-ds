@@ -20,6 +20,9 @@
     margin-top: calc(-1 * var(--ds-input-margin));
     height: var(--ds-input-margin);
   }
+  .ds-form-buttons {
+    display: flex;
+  }
   label {
     display: block;
     margin: var(--ds-input-space) 0;
