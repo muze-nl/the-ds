@@ -1,6 +1,7 @@
 @layer theme {
   :root {
     --ds-font-weight: 300;
+    --ds-font-size: 1.25rem;
     --ds-line-height: 1.6rem;
     --ds-heading-weight: 400;
     --ds-heading-multiplier: 1.27201965;
@@ -10,6 +11,7 @@
   body {
     font-family: var(--ds-font-body);
     font-weight: var(--ds-font-weight);
+    font-size: var(--ds-font-size);
     line-height: var(--ds-line-height);
   }
   h1 {
