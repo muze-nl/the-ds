@@ -288,6 +288,7 @@ const theds = {
         'typography': `@layer theme {
   :root {
     --ds-font-weight: 300;
+    --ds-font-size: 1.25rem;
     --ds-line-height: 1.6rem;
     --ds-heading-weight: 400;
     --ds-heading-multiplier: 1.27201965;
@@ -297,6 +298,7 @@ const theds = {
   body {
     font-family: var(--ds-font-body);
     font-weight: var(--ds-font-weight);
+    font-size: var(--ds-font-size);
     line-height: var(--ds-line-height);
   }
   h1 {
@@ -372,6 +374,9 @@ const theds = {
   .ds-form-help {
     margin-top: calc(-1 * var(--ds-input-margin));
     height: var(--ds-input-margin);
+  }
+  .ds-form-buttons {
+    display: flex;
   }
   label {
     display: block;
@@ -823,7 +828,7 @@ const theds = {
     --ds-dialog-radius: calc( 2 * var(--ds-box-radius));
     --ds-dialog-size: calc( 50% - (1/2 * var(--ds-space)));
     --ds-dialog-narrow: calc( 33% - (1/2 * var(--ds-space)));
-    --ds-dialog-min-width: 20em;
+    --ds-dialog-min-width: 25em;
     --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
   }
   .ds-darkmode {
@@ -1631,6 +1636,25 @@ const theds = {
             width: auto;
         }
     }
+}`,
+        'background': `@layer utility {
+  .ds-background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+  }
+  .ds-dark-background {
+    color: white;
+    text-shadow: 0 0 2px var(--ds-black);
+  }
+  .ds-light-background {
+    color: var(--ds-color);
+    text-shadow: 0 0 3px white;
+  }
 }`,
     },
     actions: {
