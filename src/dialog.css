@@ -10,10 +10,17 @@
     --ds-dialog-min-width: 20em;
     --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
   }
-  .ds-darkmode, .ds-darkmode-auto {
+  .ds-darkmode {
     --ds-dialog-background: var(--ds-color-background);
     --ds-dialog-color: var(--ds-color-contrast);
     --ds-dialog-shadow: var(--ds-glow-large);
+  }
+  @media (prefers-color-scheme: dark) {
+    .ds-darkmode-auto {
+      --ds-dialog-background: var(--ds-color-background);
+      --ds-dialog-color: var(--ds-color-contrast);
+      --ds-dialog-shadow: var(--ds-glow-large);      
+    }
   }
 }
 @layer component {
