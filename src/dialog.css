@@ -29,7 +29,8 @@
     color: var(--ds-dialog-color);
     background: var(--ds-dialog-background);
     width: var(--ds-dialog-size);
-    min-width: var(--ds-dialog-min-width);
+    min-width: min(100%, var(--ds-dialog-min-width));
+    max-width: 100%;
     box-shadow: var(--ds-dialog-shadow);
     padding: 0;
     z-index: 101;
