@@ -16,6 +16,10 @@
   .ds-form-line {
     display: flex;
   }
+  .ds-form-help {
+    margin-top: calc(-1 * var(--ds-input-margin));
+    height: var(--ds-input-margin);
+  }
   label {
     display: block;
     margin: var(--ds-input-space) 0;
