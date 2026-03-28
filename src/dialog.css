@@ -7,7 +7,7 @@
     --ds-dialog-radius: calc( 2 * var(--ds-box-radius));
     --ds-dialog-size: calc( 50% - (1/2 * var(--ds-space)));
     --ds-dialog-narrow: calc( 33% - (1/2 * var(--ds-space)));
-    --ds-dialog-min-width: 20em;
+    --ds-dialog-min-width: 25em;
     --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
   }
   .ds-darkmode {
