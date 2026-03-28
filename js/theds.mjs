@@ -90,7 +90,7 @@ export default {
         dsInitDropdown: async function() {
             simply.activate.addListener('ds-dropdown', function() {
                 const nav = this.querySelector('.ds-dropdown-nav')
-                const input = this.querySelector('.ds-dropdown-state')
+                const state = this.querySelector('.ds-dropdown-state')
                 const r = new Uint32Array(8)
                 crypto.getRandomValues(r)
                 const id = Array.from(r)
@@ -100,7 +100,12 @@ export default {
                 if (document.body.showPopover) {
                     nav.id = id
                     nav.setAttribute('popover','')
-                    input.outerHTML = '<button class="ds-dropdown-state" popovertarget="'+id+'"></button>'
+                    const button = this.querySelector('.ds-dropdown-button')
+                    if (!button) {
+                        state.outerHTML = '<button class="ds-dropdown-state" popovertarget="'+id+'"></button>'
+                    } else {
+                        button.setAttribute('popovertarget',id)
+                    }
                 }
             })
         }
