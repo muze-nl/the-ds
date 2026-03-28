@@ -65,17 +65,7 @@
     --ds-black: #000;
     --ds-white: #FFF;
     --ds-primary: oklch(0.7388 0.1792 126.69);
-    --ds-primary-90: oklch( from var(--ds-primary) max(0.7,l) c h);
-    --ds-primary-10: oklch( from var(--ds-primary) min(0.4,l) c h);
-    --ds-primary-high: oklch( from var(--ds-primary) max(0.7, l) c h);
-    --ds-primary-low: oklch( from var(--ds-primary) min(0.4,l) c h);
-    --ds-primary-contrast: white;
-    --ds-support: #d9edf7;
-    --ds-support-90: #bce8f1;
-    --ds-support-10: #d9edf7;
-    --ds-support-low: var(--ds-support-10);
-    --ds-support-high: var(--ds-support-90);
-    --ds-support-contrast: var(--ds-black);
+    --ds-support: oklch(0.7388 0.1792 216.69);
     /* http://www.colorbox.io/#steps=11#hue_start=198#hue_end=198#hue_curve=linear#sat_start=15#sat_end=15#sat_curve=linear#sat_rate=130#lum_start=98#lum_end=0#lum_curve=easeOutQuad#lock_hex=eef1f8#minor_steps_map=0 */
     --ds-grey-0: #eef1f8;
     --ds-grey-5: #e9edf6;
@@ -89,16 +79,40 @@
     --ds-grey-80: #4d565c;
     --ds-grey-90: #262c2f;
     --ds-grey-100: #000000;
-    --ds-grey-high: var(--ds-grey-90);
-    --ds-grey-medium: var(--ds-grey-60);
-    --ds-grey-low: var(--ds-grey-0);
 
     --ds-color-error: rgb(253, 143, 143);
     --ds-color-warning: #FFFFCC;
     --ds-color-info: rgb(140, 180, 250);
   }
+}
+@layer base {
+  @property --channel {
+    syntax: "*";
+    inherits: false;
+    initial-value: clamp(0, (
+      (
+        (r * .299) + (g * .587) + (b * .114)
+      ) - 128
+    ) * -1000, 255);
+  }
 
   :root {
+    --ds-primary-90: oklch( from var(--ds-primary) calc(l + 0.3) c h);
+    --ds-primary-10: oklch( from var(--ds-primary) calc(l - 0.3) c h);
+    --ds-primary-high: var(--ds-primary-90);
+    --ds-primary-low: var(--ds-primary-10);
+    --ds-primary-contrast: white;
+
+    --ds-support-90: oklch( from var(--ds-support) calc(l + 0.3) c h);
+    --ds-support-10: oklch( from var(--ds-support) calc(l - 0.3) c h);
+    --ds-support-high: var(--ds-support-90);
+    --ds-support-low: var(--ds-support-10);
+    --ds-support-contrast: white;
+
+    --ds-grey-high: var(--ds-grey-90);
+    --ds-grey-medium: var(--ds-grey-60);
+    --ds-grey-low: var(--ds-grey-0);
+
     --ds-light-color: var(--ds-black);
     --ds-light-color-background: var(--ds-white);
     --ds-light-link-color: var(--ds-primary-high);
@@ -112,18 +126,6 @@
     --ds-dark-link-color-visited: var(--ds-grey-medium);
     --ds-dark-link-color-hover: var(--ds-primary-high);
     --ds-dark-link-color-active: var(--ds-primary-high);
-  }
-}
-
-@layer base {
-  @property --channel {
-    syntax: "*";
-    inherits: false;
-    initial-value: clamp(0, (
-      (
-        (r * .299) + (g * .587) + (b * .114)
-      ) - 128
-    ) * -1000, 255);
   }
   
   :root, .ds-lightmode {
@@ -849,10 +851,17 @@
     --ds-dialog-min-width: 20em;
     --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
   }
-  .ds-darkmode, .ds-darkmode-auto {
+  .ds-darkmode {
     --ds-dialog-background: var(--ds-color-background);
     --ds-dialog-color: var(--ds-color-contrast);
     --ds-dialog-shadow: var(--ds-glow-large);
+  }
+  @media (prefers-color-scheme: dark) {
+    .ds-darkmode-auto {
+      --ds-dialog-background: var(--ds-color-background);
+      --ds-dialog-color: var(--ds-color-contrast);
+      --ds-dialog-shadow: var(--ds-glow-large);      
+    }
   }
 }
 @layer component {
