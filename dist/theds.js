@@ -487,12 +487,24 @@
     --ds-button-line-height: calc(var(--ds-line-height) * 1.5);
     --ds-button-shadow: 0;
     --ds-button-shadow-hover: var(--ds-shadow-small);
+    --ds-button-glow: 0;
+    --ds-button-glow-hover: var(--ds-glow-small);
     --ds-button-radius: 2px;
     --ds-button-padding: calc(0.5 * var(--ds-line-height));
     --ds-button-font-size: calc(0.875 * var(--ds-font-size));
   }
 }
 @layer base {
+  .ds-darkmode, .ds-dark-background {
+    --ds-button-shadow: var(--ds-button-glow);
+    --ds-button-shadow-hover: var(--ds-button-glow-hover);
+  }
+  @media (prefers-color-scheme: dark) {
+    .ds-darkmode-auto {
+      --ds-button-shadow: var(--ds-button-glow);
+      --ds-button-shadow-hover: var(--ds-button-glow-hover);
+    }
+  }
   :root .ds-button {
     line-height: var(--ds-button-line-height);
     min-height: var(--ds-button-line-height);
