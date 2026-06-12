@@ -110,7 +110,7 @@
   }
   .ds-button-naked {
     background: none;
-    outline: 0;
+    outline: none;
   }
   .ds-button-close {
     position: absolute;
