@@ -891,6 +891,16 @@
     z-index: 101;
     border-radius: calc(2px + var(--ds-dialog-radius));
   }
+  @supports (display: flow-root) {
+    .ds-dialog {
+      display: flow-root;
+    }
+  }
+  @supports not (display: flow-root) {
+    .ds-dialog {
+      padding: 0.05px;
+    }
+  }
   .ds-dialog-narrow {
     width: var(--ds-dialog-narrow);
   }
