@@ -1,5 +1,6 @@
 @layer theme {
-	:root {
+	:root,
+	:host {
 	  --ds-top: 0;
 	  --ds-left: 0;
 	  --ds-bottom: 0;

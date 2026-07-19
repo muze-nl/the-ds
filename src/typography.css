@@ -1,5 +1,6 @@
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-font-weight: 300;
     --ds-font-size: 1.25rem;
     --ds-line-height: 1.6rem;

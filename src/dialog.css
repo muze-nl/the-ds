@@ -1,6 +1,7 @@
 /* dialog */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-dialog-background: var(--ds-color-background);
     --ds-dialog-color: var(--ds-color-contrast);
     --ds-dialog-shadow: var(--ds-shadow-large);
@@ -10,12 +11,14 @@
     --ds-dialog-min-width: 25em;
     --ds-dialog-image-height: calc(var(--ds-line-height) * 6);
   }
+  :host(.ds-darkmode),
   .ds-darkmode {
     --ds-dialog-background: var(--ds-color-background);
     --ds-dialog-color: var(--ds-color-contrast);
     --ds-dialog-shadow: var(--ds-glow-large);
   }
   @media (prefers-color-scheme: dark) {
+    :host(.ds-darkmode-auto),
     .ds-darkmode-auto {
       --ds-dialog-background: var(--ds-color-background);
       --ds-dialog-color: var(--ds-color-contrast);
@@ -69,7 +72,7 @@
   }
   .ds-dialog-header-image,
   .ds-dialog-footer-image {
-    min-height: var(--ds-dialog-image-size);
+    min-height: var(--ds-dialog-image-height);
   }
   .ds-dialog-content {
     flex-grow: 1;

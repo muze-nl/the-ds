@@ -1,5 +1,6 @@
 @layer theme {
-    :root {
+    :root,
+    :host {
         --ds-font-heading: 'Alegreya Sans', sans-serif;
         --ds-font-body: 'Quicksand', Helvetica, sans-serif;
     }

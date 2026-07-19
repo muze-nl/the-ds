@@ -1,8 +1,9 @@
 /* tabs */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-tabs-space: var(--ds-button-space);
-    --ds-tabs-bg-color: var(--ds-background);
+    --ds-tabs-bg-color: var(--ds-color-background);
     --ds-tabs-color: var(--ds-color);
     --ds-tabs-default-bg-color: transparent;
     --ds-tabs-primary-bg-color: var(--ds-primary);
@@ -30,7 +31,8 @@
     margin: 0;
     padding: 0;
   }
-  :root .ds-tabs-tab {
+  :root .ds-tabs-tab,
+  :host .ds-tabs-tab {
     line-height: var(--ds-tabs-line-height);
     min-height: var(--ds-tabs-line-height);
   }

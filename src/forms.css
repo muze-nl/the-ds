@@ -1,9 +1,10 @@
 /* forms */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-input-border: var(--ds-grey-medium);
     --ds-input-space: var(--ds-space);
-    --ds-input-font: var(--ds-font-family);
+    --ds-input-font: var(--ds-font-body);
     --ds-input-radio-space: 0.2em;
     --ds-input-height: calc(var(--ds-line-height) * 1.5);
     --ds-input-margin: calc(var(--ds-line-height) * 0.5);

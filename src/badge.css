@@ -1,5 +1,6 @@
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-badge-color: var(--ds-grey-50);
     --ds-badge-font-color: var(--ds-white);
     --ds-badge-label-color: var(--ds-primary);

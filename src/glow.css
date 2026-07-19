@@ -1,5 +1,6 @@
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-glow-1: rgb(from var(--ds-white) r g b / 0.2);
     --ds-glow-2: rgb( from var(--ds-primary) r g b / 0.3);
     --ds-glow-3: rgb(from var(--ds-grey-low) r g b / 0.1);
@@ -7,7 +8,8 @@
   }
 }
 @layer base {
-  :root {
+  :root,
+  :host {
     --ds-glow-large: 
         0 0 8px 2px var(--ds-glow-1),
         0 0 15px 15px var(--ds-glow-2),

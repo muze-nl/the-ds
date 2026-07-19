@@ -1,6 +1,7 @@
 /* navigation */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-navbar-shadow: var(--ds-shadow-small);
     --ds-navbar-space: var(--ds-space-d2);
     --ds-navbar-line-height: var(--ds-line-height);
@@ -68,7 +69,7 @@
     text-align: left;
   }
   .ds-navbar-side .ds-nav .ds-icon {
-    margin-right: var(--ds-navbar-size-space);
+    margin-right: var(--ds-navbar-side-space);
   }
   .ds-navbar-side .ds-selected,
   .ds-navbar-side .ds-nav:hover,

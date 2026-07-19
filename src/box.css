@@ -1,6 +1,7 @@
 /* box */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-box-radius: 3px;
     --ds-box-shadow: var(--ds-shadow-small);
   }

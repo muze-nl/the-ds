@@ -1,6 +1,7 @@
 /* toast */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-toast-height: 60px;
     --ds-toast-hide-delay: 3s; /* 5 seems better */
     --ds-toast-show-duration: 0.3s;
@@ -11,9 +12,9 @@
     --ds-toast-background: var(--ds-grey-80);
     --ds-toast-font-color: var(--ds-white);
     --ds-toast-default-color: var(--ds-grey-50);
-    --ds-toast-error-color: var(--ds-error-color);
-    --ds-toast-info-color: var(--ds-info-color);
-    --ds-toast-warning-color: var(--ds-warning-color);
+    --ds-toast-error-color: var(--ds-color-error);
+    --ds-toast-info-color: var(--ds-color-info);
+    --ds-toast-warning-color: var(--ds-color-warning);
   }
 }
 @layer component {

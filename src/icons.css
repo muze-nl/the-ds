@@ -1,6 +1,7 @@
 /* icons */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-icon-height: var(--ds-line-height);
   }
 }

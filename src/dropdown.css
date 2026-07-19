@@ -1,6 +1,7 @@
 /* dropdown */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-dropdown-background: var(--ds-color-background);
     --ds-dropdown-color: var(--ds-color-contrast);
     --ds-dropdown-width: 200px;
@@ -8,8 +9,12 @@
     --ds-dropdown-shadow: var(--ds-shadow-medium);
     --ds-dropdown-radius: var(--ds-box-radius);
     --ds-dropdown-padding: var(--ds-space-d4) var(--ds-space-d2);
+    --ds-dropdown-anchor: --ds-dropdown;
   }
-  .ds-darkmode, .ds-darkmode-auto {
+  :host(.ds-darkmode),
+  :host(.ds-darkmode-auto),
+  .ds-darkmode,
+  .ds-darkmode-auto {
     --ds-dropdown-background: var(--ds-color-background);
     --ds-dropdown-color: var(--ds-color-contrast);
     --ds-dropdown-shadow: var(--ds-glow-small);    

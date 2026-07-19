@@ -1,5 +1,6 @@
 @layer theme {
-    :root {
+    :root,
+    :host {
         --ds-alert-error-color: var(--ds-color-error);
         --ds-alert-warning-color: var(--ds-color-warning);
         --ds-alert-info-color: var(--ds-color-info);

@@ -1,5 +1,6 @@
 @layer theme {
-    :root {
+    :root,
+    :host {
         --ds-grid-space: var(--ds-space);
         --ds-grid-space-column: var(--ds-grid-space);
         --ds-grid-space-row: var(--ds-grid-space);
@@ -8,6 +9,7 @@
         --ds-screen-size: small;
     }
     :root,
+    :host,
     .ds-grid-2,
     .ds-grid-3,
     .ds-grid-4,
@@ -16,10 +18,12 @@
         --ds-grid-columns: 2;
     }
     @container (width >= 640px) {
-        :root {
+        :root,
+        :host {
             --ds-screen-size: tablet;
         }
         :root,
+        :host,
         .ds-grid-4,
         .ds-grid-6,
         .ds-grid-12 {
@@ -30,10 +34,12 @@
         }
     }
     @container (width >= 992px) {
-        :root {
+        :root,
+        :host {
             --ds-screen-size: medium;
         }
         :root,
+        :host,
         .ds-grid-6,
         .ds-grid-12 {
             --ds-grid-columns: 6;
@@ -44,7 +50,8 @@
         }
     }
     @container (width >= 1200px) {
-        :root {
+        :root,
+        :host {
             --ds-screen-size: large;
         }
         .ds-grid-12 {
@@ -52,7 +59,8 @@
         }
     }
     @container (width >= 1800px) {
-        :root {
+        :root,
+        :host {
             --ds-screen-size: extra-large;
         }
     }
@@ -61,8 +69,8 @@
 @layer base {
     .ds-grid-fixed {
         display: grid;
-        grid-column-gap: var(--ds-grid-spacing-column);
-        grid-row-gap: var(--ds-grid-spacing-row);
+        grid-column-gap: var(--ds-grid-space-column);
+        grid-row-gap: var(--ds-grid-space-row);
         /* add row-gap/column-gap or gap */
         grid-auto-flow: row;
         grid-template-rows: repeat(1, auto);
@@ -105,7 +113,7 @@
     .ds-grid-span-11 {
         grid-column: auto / span 11;
     }
-    .ds-grid-span-6 {
+    .ds-grid-span-12 {
         grid-column: auto / span 12;
     }
     .ds-grid-span-all {
@@ -141,11 +149,11 @@
 
     /* flexible grid */
     .ds-grid {
-        --ds-grid-spacing-column: var(--ds-grid-spacing);
-        --ds-grid-spacing-row: var(--ds-grid-spacing);
+        --ds-grid-space-column: var(--ds-grid-space);
+        --ds-grid-space-row: var(--ds-grid-space);
         display: grid;
-        grid-column-gap: var(--ds-grid-spacing-column);
-        grid-row-gap: var(--ds-grid-spacing-row);
+        grid-column-gap: var(--ds-grid-space-column);
+        grid-row-gap: var(--ds-grid-space-row);
         grid-template-columns: repeat(auto-fit, minmax(var(--ds-grid-min-colwidth), 1fr));
     }
 }

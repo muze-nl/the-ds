@@ -1,6 +1,7 @@
 /* colors */
 @layer setup {
-  :root {
+  :root,
+  :host {
     --ds-black: #000;
     --ds-white: #FFF;
     --ds-primary: oklch(0.7388 0.1792 126.69);
@@ -35,7 +36,8 @@
     ) * -1000, 255);
   }
 
-  :root {
+  :root,
+  :host {
     --ds-primary-10: oklch( from var(--ds-primary) calc(l + 0.3) c h);
     --ds-primary-90: oklch( from var(--ds-primary) calc(l - 0.3) c h);
     --ds-primary-high: var(--ds-primary-90);
@@ -64,11 +66,17 @@
     --ds-dark-color-background: var(--ds-grey-high);
   }
   
-  :root, .ds-lightmode {
+  :root,
+  :host,
+  :host(.ds-lightmode),
+  .ds-lightmode {
     --ds-color: var(--ds-light-color);
     --ds-color-background: var(--ds-light-color-background);
   }
-  .ds-darkmode, .ds-dark-background {
+  :host(.ds-darkmode),
+  :host(.ds-dark-background),
+  .ds-darkmode,
+  .ds-dark-background {
     --ds-color: var(--ds-dark-color);
     --ds-color-background: var(--ds-dark-color-background);
     --ds-grey-high: var(--ds-grey-10);
@@ -84,6 +92,7 @@
     --ds-link-color-active: var(--ds-support);
   }
   @media (prefers-color-scheme: dark) {
+    :host(.ds-darkmode-auto),
     .ds-darkmode-auto {
       --ds-color: var(--ds-dark-color);
       --ds-color-background: var(--ds-dark-color-background);
@@ -100,7 +109,14 @@
       --ds-link-color-active: var(--ds-support);
     }
   }
-  :root, .ds-darkmode, .ds-lightmode, .ds-darkmode-auto {
+  :root,
+  :host,
+  :host(.ds-darkmode),
+  :host(.ds-lightmode),
+  :host(.ds-darkmode-auto),
+  .ds-darkmode,
+  .ds-lightmode,
+  .ds-darkmode-auto {
     --ds-color-contrast: rgb(from var(--ds-color-background) var(--channel) var(--channel) var(--channel));
     --ds-primary-gradient: linear-gradient( to bottom, var(--ds-primary-low), var(--ds-primary-high) );
     --ds-support-gradient: linear-gradient( to bottom, var(--ds-support-low), var(--ds-support-high) );

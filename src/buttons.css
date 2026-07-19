@@ -1,18 +1,19 @@
 /* buttons */
 @layer theme {
-  :root {
+  :root,
+  :host {
     --ds-button-space: calc(0.5 * var(--ds-input-space));
-    --ds-button-bg-color: var(--ds-grey-light);
+    --ds-button-bg-color: var(--ds-grey-low);
     --ds-button-default-bg-color: var(--ds-white);
-    --ds-button-border-color: var(--ds-grey-light);
+    --ds-button-border: 1px solid var(--ds-grey-low);
     --ds-button-disabled-color: var(--ds-grey-medium);
     --ds-button-disabled-bg-color: var(--ds-white);
     --ds-button-primary-bg-color: var(--ds-primary);
     --ds-button-primary-color: var(--ds-primary-contrast);
-    --ds-button-primary-border: none;
+    --ds-button-primary-border-color: transparent;
     --ds-button-support-bg-color: var(--ds-support);
     --ds-button-support-color: var(--ds-support-contrast);
-    --ds-button-support-border: none;
+    --ds-button-support-border-color: transparent;
     --ds-button-line-height: calc(var(--ds-line-height) * 1.5);
     --ds-button-shadow: 0;
     --ds-button-shadow-hover: var(--ds-shadow-small);
@@ -24,17 +25,22 @@
   }
 }
 @layer base {
-  .ds-darkmode, .ds-dark-background {
+  :host(.ds-darkmode),
+  :host(.ds-dark-background),
+  .ds-darkmode,
+  .ds-dark-background {
     --ds-button-shadow: var(--ds-button-glow);
     --ds-button-shadow-hover: var(--ds-button-glow-hover);
   }
   @media (prefers-color-scheme: dark) {
+    :host(.ds-darkmode-auto),
     .ds-darkmode-auto {
       --ds-button-shadow: var(--ds-button-glow);
       --ds-button-shadow-hover: var(--ds-button-glow-hover);
     }
   }
-  :root .ds-button {
+  :root .ds-button,
+  :host .ds-button {
     line-height: var(--ds-button-line-height);
     min-height: var(--ds-button-line-height);
   }

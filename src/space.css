@@ -1,12 +1,14 @@
 /* space */
 /* --ds-line-height is defined in typography.css */
 @layer theme {
-    :root {
+    :root,
+    :host {
         --ds-space: var(--ds-line-height);
     }
 }
 @layer base {
-    :root {
+    :root,
+    :host {
         --ds-space-d4: calc(var(--ds-space) / 4);
         --ds-space-d3: calc(var(--ds-space) / 3);
         --ds-space-d2: calc(var(--ds-space) / 2);
@@ -58,7 +60,7 @@
     }
 
     /* FIXME: this seems broken check out why */
-    .ds-space-inside-vertical::befofe,
+    .ds-space-inside-vertical::before,
     .ds-space-inside-vertical::after,
     .ds-space-inside::before,
     .ds-space-inside::after {

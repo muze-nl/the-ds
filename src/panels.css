@@ -1,5 +1,6 @@
 @layer theme {
-    :root {
+    :root,
+    :host {
     	--ds-panels-list-width: 20em;
     	--ds-panels-padding: var(--ds-space-d4);
     }
